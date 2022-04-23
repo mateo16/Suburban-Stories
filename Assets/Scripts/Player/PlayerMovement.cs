@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    Vector2 movement;
+
     Vector3 velocity;
     bool isGrounded;
 
@@ -26,10 +28,11 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        movement.Normalize();
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 move = transform.right * movement.x + transform.forward * movement.y;
 
         controller.Move(move * speed * Time.deltaTime);
 
@@ -45,6 +48,11 @@ public class PlayerMovement : MonoBehaviour
         if (transform.position.y < -3)
         {
             transform.position = new Vector3(0, 3, -3);
+        }
+
+        if (!isGrounded && (controller.collisionFlags & CollisionFlags.Above) != 0)
+        {
+              velocity.y = -velocity.y;
         }
     }
 }
