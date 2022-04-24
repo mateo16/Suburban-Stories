@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class GunSystem : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class GunSystem : MonoBehaviour
     public RaycastHit rayHit;
     public LayerMask whatIsEnemy;
 
+    public GameObject muzzleFlash;
+    public GameObject bulletHoleGraphic;
+    //public TextMeshProUGUI text;
+
     private void Start()
     {
         bulletsLeft = magazineSize;
@@ -24,6 +29,8 @@ public class GunSystem : MonoBehaviour
     private void Update()
     {
         MyInput();
+
+        //text.SetText(bulletsLeft + " / " + magazineSize);
     }
 
     private void MyInput()
@@ -52,10 +59,12 @@ public class GunSystem : MonoBehaviour
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy)){
             if (rayHit.collider.CompareTag("Enemy"))
             {
-                Debug.Log("le pegaste");
                 rayHit.collider.GetComponent<EnemyDamage>().TakeDamage(damage);
             }
         }
+
+        Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.LookRotation(rayHit.normal));
+        Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
         bulletsShot--;
