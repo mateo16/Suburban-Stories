@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class Buttons : MonoBehaviour
 {
     private ManagerJuego _managerjuego;
-    [SerializeField] private string newGameLevel = "Level1";
 
     public void PlayGame()
     {
