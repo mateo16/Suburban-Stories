@@ -3,6 +3,8 @@ using TMPro;
 
 public class GunSystem : MonoBehaviour
 {
+    private KeyCode reloadingKey = KeyCode.R;
+
     public int damage;
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
@@ -38,7 +40,7 @@ public class GunSystem : MonoBehaviour
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+        if (Input.GetKeyDown(reloadingKey) && bulletsLeft < magazineSize && !reloading) Reload();
 
         if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
