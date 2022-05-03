@@ -20,6 +20,7 @@ public class GunSystem : MonoBehaviour
 
     public GameObject muzzleFlash;
     public GameObject bulletHoleGraphic;
+    Ammo AmmoAmount = new Ammo();
     //public TextMeshProUGUI text;
 
     private void Start()
@@ -45,6 +46,7 @@ public class GunSystem : MonoBehaviour
         if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             bulletsShot = bulletsPerTap;
+            AmmoAmount.AmmoLeft--;
             Shoot();
         }
     }
@@ -70,6 +72,7 @@ public class GunSystem : MonoBehaviour
 
         bulletsLeft--;
         bulletsShot--;
+        AmmoAmount.AmmoLeft--;
 
         Invoke("ResetShot", timeBetweenShooting);
 
@@ -82,6 +85,7 @@ public class GunSystem : MonoBehaviour
     private void ResetShot()
     {
         readyToShoot = true;
+        AmmoAmount.AmmoLeft = bulletsLeft;
     }
 
     private void Reload()
