@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private bool canSprint = true;
     private KeyCode sprintKey = KeyCode.LeftShift;
 
+    public Animator anim;
+
     public float walkSpeed = 5f;
     public float runSpeed = 10f;
     public float gravity = -10f;
@@ -24,18 +26,42 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
 
     public float sprintStamina = 10f;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if(isGrounded && velocity.y < 0)
+        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        {
+            if (anim != null)
+            {
+                anim.SetBool("IsMoving",false);
+            }
+        }
+
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
-
+        float hor = Input.GetAxisRaw("Horizontal");
+        float ver = Input.GetAxisRaw("Vertical");
+        Vector3 inputPlayer = new Vector3(hor, 0, ver);
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
+
+        if (inputPlayer == Vector3.zero)
+        {
+            anim.SetBool("IsMoving", false);
+        }
+        else
+        {
+            anim.SetBool("IsMoving", true);
+        }
 
         Vector3 move = transform.right * movement.x + transform.forward * movement.y;
 
