@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ReadyPlayerMe
 {
-    [CustomEditor(typeof(EyeAnimationHandler))]
+    //[CustomEditor(typeof(EyeAnimationHandler))]
     public class EyeAnimationHandlerEditor : Editor
     {
         private readonly GUIContent BlinkSpeedLabel = new GUIContent("Blink Speed", "How fast the eyes blink in seconds.");
@@ -33,7 +33,7 @@ namespace ReadyPlayerMe
             if (EditorGUI.EndChangeCheck())
             {
                 serializedObject.ApplyModifiedProperties();
-                (target as EyeAnimationHandler).Initialize();
+                //(target as EyeAnimationHandler).Initialize();
             }
         }
     }

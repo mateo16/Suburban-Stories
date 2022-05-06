@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: a7796b56b0c3a9242ba77fbd8a80272f
 ModelImporter:
-  serializedVersion: 19301
+  serializedVersion: 20200
   internalIDToNameTable:
   - first:
       1: 100000
@@ -526,6 +526,7 @@ ModelImporter:
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
@@ -535,6 +536,9 @@ ModelImporter:
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 0
   tangentSpace:
@@ -1090,8 +1094,7 @@ ModelImporter:
     - name: LeftHandIndex4
       parentName: LeftHandIndex3
       position: {x: 0.00028335303, y: 0.027108952, z: -0.00002977252}
-      rotation: {x: 0.000000109896064, y: 0.00000029802322, z: -0.00000011920929,
-        w: 1}
+      rotation: {x: 0.000000109896064, y: 0.00000029802322, z: -0.00000011920929, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: LeftHandIndex4_end
       parentName: LeftHandIndex4
@@ -1166,8 +1169,7 @@ ModelImporter:
     - name: LeftHandRing4
       parentName: LeftHandRing3
       position: {x: 0.000003375113, y: 0.020168532, z: 0.000012461096}
-      rotation: {x: -0.00000019447182, y: -0.0000030931556, z: -0.000000026077036,
-        w: 1}
+      rotation: {x: -0.00000019447182, y: -0.0000030931556, z: -0.000000026077036, w: 1}
       scale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
     - name: LeftHandRing4_end
       parentName: LeftHandRing4
@@ -1332,8 +1334,7 @@ ModelImporter:
     - name: RightHandRing4
       parentName: RightHandRing3
       position: {x: -0.000086117536, y: 0.01959594, z: 0.0000028992072}
-      rotation: {x: -0.00000085774803, y: -0.0000014280084, z: -0.00000035914124,
-        w: 1}
+      rotation: {x: -0.00000085774803, y: -0.0000014280084, z: -0.00000035914124, w: 1}
       scale: {x: 1.0000001, y: 1, z: 1.0000001}
     - name: RightHandRing4_end
       parentName: RightHandRing4
@@ -1382,6 +1383,7 @@ ModelImporter:
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
