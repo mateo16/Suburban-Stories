@@ -10,6 +10,7 @@ public class GunSystem : MonoBehaviour
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
+    public Ammo Scriptammo;
 
     bool shooting, readyToShoot, reloading;
 
@@ -21,14 +22,13 @@ public class GunSystem : MonoBehaviour
     public GameObject muzzleFlash;
     public GameObject bulletHoleGraphic;
 
-    Ammo AmmoAmount = new Ammo();
-
     public GameObject enemyImpact;
 
     //public TextMeshProUGUI text;
 
     private void Start()
     {
+        Scriptammo.StartAmmo(magazineSize);
         bulletsLeft = magazineSize;
         readyToShoot = true;
     }
@@ -50,7 +50,7 @@ public class GunSystem : MonoBehaviour
         if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             bulletsShot = bulletsPerTap;
-            AmmoAmount.AmmoLeft--;
+            Scriptammo.ReduceAmmo();
             Shoot();
         }
     }
@@ -81,7 +81,6 @@ public class GunSystem : MonoBehaviour
 
         bulletsLeft--;
         bulletsShot--;
-        AmmoAmount.AmmoLeft--;
 
         Invoke("ResetShot", timeBetweenShooting);
 
@@ -94,7 +93,6 @@ public class GunSystem : MonoBehaviour
     private void ResetShot()
     {
         readyToShoot = true;
-        AmmoAmount.AmmoLeft = bulletsLeft;
     }
 
     private void Reload()
@@ -105,6 +103,7 @@ public class GunSystem : MonoBehaviour
     private void ReloadFinished()
     {
         bulletsLeft = magazineSize;
+        Scriptammo.RestartAmmo(magazineSize);
         reloading = false;
     }
 }

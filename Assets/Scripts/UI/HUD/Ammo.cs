@@ -5,20 +5,33 @@ using UnityEngine.UI;
 
 public class Ammo : MonoBehaviour
 {
-    public int AmmoLeft = 8;
+    public int AmmoLeft;
+    int MagazineSize;
     public Text AmmoText;
+    bool HeldGun = false;
     void Start()
     {
-        
-    }
 
+    }
+    public void StartAmmo(int AmmoAmount){
+        MagazineSize = AmmoAmount;
+        AmmoLeft = AmmoAmount;
+        HeldGun = true;
+    }
     void Update()
     {
-        AmmoText.text = AmmoLeft + " Bullets Left";
+        if (HeldGun)
+        {
+            AmmoText.text = AmmoLeft + "/" + MagazineSize;
+        }
     }
 
-    void ReduceAmmo()
+    public void ReduceAmmo()
     {
         AmmoLeft--;
+    }
+    public void RestartAmmo(int AmmoAmount)
+    {
+        AmmoLeft = AmmoAmount;
     }
 }
