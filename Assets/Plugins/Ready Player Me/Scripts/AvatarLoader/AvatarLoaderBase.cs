@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using System.Collections;
 using UnityEngine.Networking;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     public abstract class AvatarLoaderBase
     {
@@ -20,15 +20,15 @@ namespace ReadyPlayerMe
         // Avatar meta data
         protected AvatarMetaData avatarMetaData = null;
 
-        // Prefix to remove from names for correction
-        protected const string Prefix = "Wolf3D_";
+        // Postfix to remove from names for correction
+        protected const string Wolf3DPrefix = "Wolf3D_";
 
-        // Animation avatars
-        protected const string MasculineAnimationAvatarName = "AnimationAvatars/MasculineAnimationAvatar";
-        protected const string FeminineAnimationAvatarName = "AnimationAvatars/FeminineAnimationAvatar";
+        // Animation avatar and controllers
+        protected const string MaleAnimationTargetName = "AnimationTargets/MaleAnimationTarget";
+        protected const string FemaleAnimationTargetName = "AnimationTargets/FemaleAnimationTarget";
 
-        // Animation controller
-        protected const string AnimatorControllerName = "Avatar Animator";
+        protected const string MaleAnimatorControllerName = "AnimatorControllers/MaleFullbody";
+        protected const string FemaleAnimatorControllerName = "AnimatorControllers/FemaleFullbody";
 
         // Bone names
         private const string Hips = "Hips";
@@ -82,7 +82,8 @@ namespace ReadyPlayerMe
             }
         }
 
-        private string AnimationAvatarSource => avatarMetaData.IsOutfitMasculine() ? MasculineAnimationAvatarName : FeminineAnimationAvatarName;
+        private string AnimatorControllerName => avatarMetaData.IsOutfitMasculine() ? MaleAnimatorControllerName : FemaleAnimatorControllerName;
+        private string AnimationAvatarSource => (avatarMetaData.IsOutfitMasculine() ? MaleAnimationTargetName : FemaleAnimationTargetName) + OutfitVersion(avatarMetaData.OutfitVersion);
 
         /// <summary>
         ///     Restructure avatar bones and add gender spesific animation avatar and animator controller.
@@ -112,6 +113,7 @@ namespace ReadyPlayerMe
             }
             #endregion
         }
+
 
         private string OutfitVersion(int version) 
         {
@@ -149,15 +151,15 @@ namespace ReadyPlayerMe
         }
 
         #region Set Names
-        private const string AvatarPrefix = "Avatar";
-        private const string MeshPrefix = "Avatar_Mesh";
-        private const string RendererPrefix = "Avatar_Renderer";
-        private const string MaterialPrefix = "Avatar_Material";
-        private const string SkinnedMeshPrefix = "Avatar_SkinnedMesh";
+        private const string AvatarPrefix = "Wolf3D.Avatar";
+        private const string MeshPrefix = "Wolf3D.Avatar_Mesh";
+        private const string RendererPrefix = "Wolf3D.Avatar_Renderer";
+        private const string MaterialPrefix = "Wolf3D.Avatar_Material";
+        private const string SkinnedMeshPrefix = "Wolf3D.Avatar_SkinnedMesh";
 
         /// <summary>
         ///     Name avatar assets for make them easier to view in profiler.
-        ///     Naming is 'Avatar_<Type>_<Name>'
+        ///     Naming is 'Wolf3D.Avatar_<Type>_<Name>'
         /// </summary>
         protected void SetAvatarAssetNames(GameObject avatar)
         {
@@ -165,7 +167,7 @@ namespace ReadyPlayerMe
 
             foreach (var renderer in renderers)
             {
-                string assetName = renderer.name.Replace(Prefix, "");
+                string assetName = renderer.name.Replace(Wolf3DPrefix, "");
 
                 renderer.name = $"{RendererPrefix}_{assetName}";
                 renderer.sharedMaterial.name = $"{MaterialPrefix}_{assetName}";

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     public class AvatarMetaData
     {

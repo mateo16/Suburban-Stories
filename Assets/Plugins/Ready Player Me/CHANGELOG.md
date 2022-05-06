@@ -3,106 +3,30 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [1.9.0] - 2022.04.06
-
-### Added
-
-- Context menu for extracting animations from FBX files.
-
-### Fixed
-
-- async loading issue causing mesh explosion
-
-## Changed
-
-- removed legacy post message event listener
-
-## [1.8.0] - 2022.21.03
-
-### Added
-
-- Eye Animation handler play mode update and blink rate field
-
-### Changed
-
-- Animation Target FBX files are removed, animations and animation avatars are mvoed into separete folders
-- MipMaps are disabled for avatar textures
-- Removed "Wolf3D" from namespace and component names and filenames
-- Renamed "Wolf3D Ready Player Me Avatar SDK" folder to "Ready Player Me"
-
-### Fixed
-
-- Partner subdomain save issue
-- Partner subdomain forced to return "demo" if set blank
-
-## [1.7.3] - 2021.20.01
-
-### Fixed
-
-- Partner subdomain save issue
-
-## [1.7.2] - 2022.19.01
-
-### Changed
-
-- WebView example close button behaviour update in UI
-
-### Fixed
-
-- Code commenting and typo fixes
-
-### Removed
-
-- Former animation source FBX fiels are removed
-
-## [1.7.1] - 2021.12.20
-
-### Changed
-
-- Editor UI updates
-- WebView IOS and Android Platform Dependent Compilation blocks
-- Loading avatars if short code url is pasted
-
-## [1.7.0] - 2021.10.08
-
-### Changed
-
-- Layout and styles for editor windows
-
-### Added
-
-- FAQ button to editor windows
-
 ## [1.6.0] - 2021.09.02
 
-### Changed
-
+### Updates
 - WebView Plugin updated
 - MessageCanvas replaced with MessageCanvas for flexible use.
 - WebView is called on a prefab which can be added via create/ui menu.
 - WebView example scene updated.
 
 ### Added
-
 - OnAvatarImported callback to avatar loader, to receive the gameobject before it is processed.
 
 ### Fixed
-
 - File name and typo fixes.
 
 ### Removed
-
 - MessageCanvas removed. Unsupported cases are covered by a message panel.
 - webview.html is removed.
 
 ## [1.5.1] - 2021.06.29
 
 ### Added
-
 - Audio Clip support for Voice Handler.
 
-### Changed
-
+### Updates
 - Project version is updated to 2019.4.11f1 LTS.
 - Runtime Test scene has URL to an optimized avatar.
 - Animation Target files updated with models with basic mesh.
@@ -110,24 +34,20 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Avatar Armature and HipBone scale are set to 1.
 
 ### Fixed
-
 - Typo fixes and refactoring in general.
 
 ## [1.5.0] - 2021.06.14
 
 ### Added
-
 - Support for loading avatars from short codes.
 - WebView menu window for editing partner subdomain in webview.html
 
-### Changed
-
+### Updates
 - General refactoring.
 - RPM website updated to Unity SDK.
 - VoiceHandler supports beard and teeth mesh.
 
 ### Fixed
-
 - Animations not exporting correctly in the second time.
 - WebView IOS permissions issues.
 - WebView SSL Issue on Android.
@@ -136,33 +56,27 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.4.3] - 2021.05.27
 
 ### Added
-
 - Webview No Internet case covered.
 
 ### Fixed
-
 - Asset import order conflict between animation and animation target files fixed.
 - Animation Controllers losing animation references fixed.
 
 ## [1.4.2] - 2021.05.27
 
 ### Added
-
 - Variable caching for Avatar Loader window.
 - Reveal Animations Folder button to Avatar Loader window.
 - Support for auto assigning animation files avatars during import.
 
 ### Updated
-
 - Animation target FBX files for V2 avatars are updated.
 - WebView plugin is refactored and code is cleaned up.
 
 ### Fixed
-
 - IOS WebView not receiving glb URL.
 
 ## Removed
-
 - MacOS support for WebView. Due to working partially.
 
 ## [1.4.1] - 2021.05.18

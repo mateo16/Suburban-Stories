@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK 
 {
     public enum BodyType
     {

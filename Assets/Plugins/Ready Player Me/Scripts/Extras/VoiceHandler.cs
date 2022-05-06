@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
-using static ReadyPlayerMe.ExtensionMethods;
+using static Wolf3D.ReadyPlayerMe.AvatarSDK.ExtensionMethods;
 
 #if UNITY_ANDROID
 using UnityEngine.Android;
 #endif
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     public enum AudioProviderType
     {

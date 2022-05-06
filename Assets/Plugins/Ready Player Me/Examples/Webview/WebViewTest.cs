@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     public class WebViewTest : MonoBehaviour
     {
@@ -9,24 +8,15 @@ namespace ReadyPlayerMe
 
         [SerializeField] private WebView webView;
         [SerializeField] private GameObject loadingLabel = null;
-        [SerializeField] private Button displayButton = null;
-        [SerializeField] private Button closeButton = null;
+        [SerializeField] private GameObject displayButton = null;
 
-        private void Start()
-        {
-            displayButton.onClick.AddListener(DisplayWebView);
-            closeButton.onClick.AddListener(HideWebView);
-        }
-
-        // Display WebView or create it if not initialized yet 
-        private void DisplayWebView()
+        public void DisplayWebView()
         {
             if(webView == null)
             {
                 webView = FindObjectOfType<WebView>();
             }
-            
-            if (webView.Loaded)
+            else if (webView.Loaded)
             {
                 webView.SetVisible(true);
             }
@@ -35,15 +25,6 @@ namespace ReadyPlayerMe
                 webView.CreateWebView();
                 webView.OnAvatarCreated = OnAvatarCreated;
             }
-
-            closeButton.gameObject.SetActive(true);
-            displayButton.gameObject.SetActive(false);
-        }
-
-        private void HideWebView()  {
-            webView.SetVisible(false);
-            closeButton.gameObject.SetActive(false);
-            displayButton.gameObject.SetActive(true);
         }
 
         // WebView callback for retrieving avatar url
@@ -53,8 +34,7 @@ namespace ReadyPlayerMe
 
             webView.SetVisible(false);
             loadingLabel.SetActive(true);
-            displayButton.gameObject.SetActive(false);
-            closeButton.gameObject.SetActive(false);
+            displayButton.SetActive(false);
 
             AvatarLoader avatarLoader = new AvatarLoader();
             avatarLoader.LoadAvatar(url, null, OnAvatarImported);
@@ -65,15 +45,9 @@ namespace ReadyPlayerMe
         {
             this.avatar = avatar;
             loadingLabel.SetActive(false);
-            displayButton.gameObject.SetActive(true);
+            displayButton.SetActive(true);
 
             Debug.Log("Loaded");
-        }
-
-        private void Destroy()
-        {
-            displayButton.onClick.RemoveListener(DisplayWebView);
-            closeButton.onClick.RemoveListener(HideWebView);
         }
     }
 }

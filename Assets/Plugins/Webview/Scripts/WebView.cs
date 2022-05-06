@@ -1,49 +1,50 @@
 using System;
 using UnityEngine;
-using Newtonsoft.Json;
-using System.Collections.Generic;
 
 public class WebView: MonoBehaviour
 {
-    private const string GlbExtension = ".glb";
-    private const string DataUrlFieldName = "url";
-    private const string AvatarExportEventName = "v1.avatar.exported";
+    public bool Loaded { get; private set; }
 
     private WebViewWindowBase webViewObject = null;
 
     [SerializeField] private MessagePanel messagePanel = null;
     
     [Header("Padding")]
-    [SerializeField] private int left;
-    [SerializeField] private int top;
-    [SerializeField] private int right;
-    [SerializeField] private int bottom;
-      
-    public bool Loaded { get; private set; }
-    
+    [SerializeField] public int left;
+    [SerializeField] public int top;
+    [SerializeField] public int right;
+    [SerializeField] public int bottom;
+
+    // Event to call when webview starts, receives message.
+    public Action<string> OnWebViewStarted;
+
     // Event to call when avatar is created, receives GLB url.
     public Action<string> OnAvatarCreated;
 
     /// <summary>
-    ///     Create WebView object attached to a MonoBehaviour object
+    ///     Create webview object attached to a MonoBehaviour object
     /// </summary>
+    /// <param name="parent">Parent game object.</param>
     public void CreateWebView()
     {
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
             messagePanel.SetMessage(MessagePanel.MessageType.NetworkError);
             messagePanel.SetVisible(true);
+            messagePanel.TapToCloseEnabled = true;
         }
         else
         {
             #if UNITY_EDITOR || !(UNITY_ANDROID || UNITY_IOS)
                 messagePanel.SetMessage(MessagePanel.MessageType.NotSupported);
                 messagePanel.SetVisible(true);
+                messagePanel.TapToCloseEnabled = true;
             #else
                 if (webViewObject == null)
                 {
                     messagePanel.SetMessage(MessagePanel.MessageType.Loading);
                     messagePanel.SetVisible(true);
+                    messagePanel.TapToCloseEnabled = false;
 
                     #if UNITY_ANDROID
                         webViewObject = gameObject.AddComponent<AndroidWebViewWindow>();
@@ -68,7 +69,7 @@ public class WebView: MonoBehaviour
     }
 
     /// <summary>
-    ///     Set WebView screen padding in pixels.
+    ///     Set webview screen padding in pixels.
     /// </summary>
     public void SetScreenPadding(int left, int top, int right, int bottom)
     {
@@ -85,58 +86,36 @@ public class WebView: MonoBehaviour
         messagePanel.SetMargins(left, top, right, bottom);
     }
 
-    /// <summary>
-    ///     Set WebView window visible, shows or hides both message window and WebView
-    /// </summary>
-    /// <param name="visible">Visibility of the <see cref="webViewObject"/> or <see cref="messagePanel"/></param>
     public void SetVisible(bool visible)
     {
-        if (webViewObject)
-        {
-            webViewObject.IsVisible = visible;
-            messagePanel.SetVisible(visible);
-        }
+        webViewObject.IsVisible = visible;
     }
 
     private void OnWebMessageReceived(string message)
     {
-        Debug.Log($"--- WebView Message: { message }");
+        Debug.Log($"Message: {message}");
 
-        try
+        if (message.Contains(".glb"))
         {
-            WebMessage webMessage = JsonConvert.DeserializeObject<WebMessage>(message);
-
-            if(webMessage.eventName == AvatarExportEventName)
-            {
-                if (webMessage.data.TryGetValue(DataUrlFieldName, out string avatarUrl))
-                {
-                    webViewObject.IsVisible = false;
-                    OnAvatarCreated?.Invoke(avatarUrl);
-                }
-            }
-        }
-        catch(Exception e)
-        {
-            Debug.Log($"--- Message is not JSON: { message }\nError Message: { e.Message }");
+            webViewObject.IsVisible = false;
+            OnAvatarCreated?.Invoke(message);
         }
     }
 
     private void OnLoaded(string message)
     {
         if (Loaded) return;
-        
-        Debug.Log("--- WebView Loaded.");
+
+        Debug.Log("WebView Loaded.");
 
         webViewObject.EvaluateJS(@"
-            document.cookie = 'webview=true';
-
             if (window && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.unityControl) {
                 window.Unity = {
                     call: function(msg) { 
                         window.webkit.messageHandlers.unityControl.postMessage(msg); 
                     }
                 }
-            }
+            } 
             else {
                 window.Unity = {
                     call: function(msg) {
@@ -145,45 +124,25 @@ public class WebView: MonoBehaviour
                 }
             }
 
-            function subscribe(event) {
-                const json = parse(event);
-                const source = json.source;
-                    
-                if (source !== 'readyplayerme') {
-                    return;
-                }
-
+            function receiveMessage(event) {
 			    Unity.call(event.data);
 		    }
 
-            function parse(event) {
-                try {
-                    return JSON.parse(event.data);
-                } catch (error) {
-                    return null;
-                }
-            }
+            window.removeEventListener('message', receiveMessage, false);
+            window.addEventListener('message', receiveMessage, false);
 
-            window.postMessage(
-                JSON.stringify({
-                    target: 'readyplayerme',
-                    type: 'subscribe',
-                    eventName: 'v1.**'
-                }),
-                '*'
-            );
-
-            window.removeEventListener('message', subscribe);
-            window.addEventListener('message', subscribe)
+            document.cookie = 'webview = true';
         ");
 
         Loaded = true;
 
-        // Tasks break WebView, used invoke instead.
+        // Tasks break webview, used invoke instead.
         Invoke(nameof(DisplayWebView), 1f);
+        Invoke(nameof(HideMessagePanel), 1.5f);
     }
 
     private void DisplayWebView() => webViewObject.IsVisible = true;
+    private void HideMessagePanel() => messagePanel.gameObject.SetActive(false);
 
     private void OnDrawGizmos()
     {
@@ -196,12 +155,4 @@ public class WebView: MonoBehaviour
 
         Gizmos.DrawWireCube(center, size);
     }
-}
-
-public struct WebMessage
-{
-    public string type;
-    public string source;
-    public string eventName;
-    public Dictionary<string, string> data;
 }

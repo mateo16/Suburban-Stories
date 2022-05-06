@@ -2,14 +2,14 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     public class EditorWindowBase : EditorWindow
     {
-        public const string Version = "v1.9.0";
+        public const string Version = "v1.7.0";
 
-        private const string BannerPath = "Assets/Plugins/Ready Player Me/Editor/RPM_EditorImage_Banner.png";
-        private const string LovePath = "Assets/Plugins/Ready Player Me/Editor/RPM_EditorImage_Love.png";
+        private const string BannerPath = "Assets/Plugins/Wolf3D Ready Player Me SDK/Editor/RPM_EditorImage_Banner.png";
+        private const string LovePath = "Assets/Plugins/Wolf3D Ready Player Me SDK/Editor/RPM_EditorImage_Love.png";
 
         private const string BecomeAPartnerUrl = "https://bit.ly/UnitySDKForm";
         private const string BecomePartnerText = "Would you like to become a Ready Player Me partner to have your a own subdomain with your logo and custom theme? Click on the button and fill in the form to get in touch with us!";
@@ -17,6 +17,7 @@ namespace ReadyPlayerMe
         private const string DocsUrl = "https://bit.ly/UnitySDKDocs";
         private const string faqUrl= "https://docs.readyplayer.me/overview/frequently-asked-questions/game-engine-faq";
         private const string DiscordUrl = "https://bit.ly/UnitySDKDiscord";
+        private const string WolfUrl = "https://wolf3d.io";
 
         private const int HeaderTop = 110;
         private readonly Vector2 headerSize = new Vector2(350, 10);
@@ -57,7 +58,7 @@ namespace ReadyPlayerMe
             {
                 webButtonStyle = new GUIStyle(GUI.skin.button);
                 webButtonStyle.fontSize = 12;
-                webButtonStyle.fixedWidth = 166;
+                webButtonStyle.fixedWidth = 163;
                 webButtonStyle.padding = new RectOffset(5, 5, 5, 5);
             }
 
@@ -69,8 +70,9 @@ namespace ReadyPlayerMe
             } 
         }
 
-        public void DrawContent(Action content)
+        public void DrawContent(Action content, int windowHeight)
         {
+
             LoadAssets();
 
             Horizontal(() =>
@@ -79,7 +81,9 @@ namespace ReadyPlayerMe
                 Vertical(() => {
                     DrawBanner();
                     content?.Invoke();
+                    EditorGUILayout.Space();
                     DrawExternalLinks();
+                    DrawFooter(windowHeight);
                 }, windowWidth);
                 GUILayout.FlexibleSpace();
             });
@@ -102,6 +106,7 @@ namespace ReadyPlayerMe
             Vertical(() =>
             {
                 EditorGUILayout.HelpBox(BecomePartnerText, MessageType.Info);
+                GUILayout.Space(5);
                 EditorGUILayout.BeginHorizontal();
                 if (GUILayout.Button("Become a Partner", partnerButtonStyle))
                 {
@@ -110,6 +115,7 @@ namespace ReadyPlayerMe
 
                 EditorGUILayout.EndHorizontal();
             }, true);
+            GUILayout.Space(5);
             
             EditorGUILayout.BeginHorizontal("Box");
             GUILayout.FlexibleSpace();
@@ -127,6 +133,27 @@ namespace ReadyPlayerMe
             }
             GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
+        }
+
+        private void DrawFooter(int windowHeight)
+        {
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button("Built with  --  by Wolf3D", footerTextStyle, GUILayout.Width(160)))
+            {
+                Application.OpenURL(WolfUrl);
+            }
+            if (love != null)
+            {
+#if UNITY_2019_1_OR_NEWER
+                GUI.DrawTexture(new Rect((position.size.x - 44f) / 2f, windowHeight - 15, 17, 17), love);
+#else
+                GUI.DrawTexture(new Rect((position.size.x - 28f) / 2f, windowHeight - 15, 16, 16), love);
+#endif
+            }
+            GUILayout.FlexibleSpace();
+            EditorGUILayout.EndHorizontal();
+            GUILayout.Space(5);
         }
 
         #region Horizontal and Vertical Layouts

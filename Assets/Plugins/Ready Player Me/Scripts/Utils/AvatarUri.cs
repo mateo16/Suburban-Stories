@@ -3,17 +3,13 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using System.Net.Http;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     public class AvatarUri
     {
         private readonly string[] Extensions = { ".glb", ".gltf" };
-
-        private const string ShortCodeRegex = "^[A-Z0-9]{6}$";
-        private const string ShortCodeUrlRegex = "^(https://readyplayer.me/api/avatar/)[A-Z0-9]{6}$";
 
         private const string ShortCodeBaseUrl = "https://readyplayer.me/api/avatar/";
 
@@ -24,24 +20,18 @@ namespace ReadyPlayerMe
         public string AbsolutePath {get; private set; }
         public string AbsoluteName { get; private set; }
         public string MetaDataUrl { get; private set; }
-        
-        // Cover all possible cases
-        // short code only, short code in url, and glb url
+
         public async Task<AvatarUri> Create(string url)
         {
-            if (Regex.Match(url, ShortCodeRegex).Length > 0)
+            if (!Uri.IsWellFormedUriString(url, UriKind.Absolute))
             {
                 url = await GetUrlFromShortCode(url);
             }
-            else if (Regex.Match(url, ShortCodeUrlRegex).Length > 0)
-            {
-                url = await GetUrlFromShortCode(url.Substring(url.Length - 6));
-            }
 
-            return CreateFromUrl(url);
+            return CreateFromURL(url);
         }
 
-        private AvatarUri CreateFromUrl(string url)
+        private AvatarUri CreateFromURL(string url)
         {
             Uri uri = new Uri(url);
 
@@ -63,7 +53,7 @@ namespace ReadyPlayerMe
             return this;
         }
 
-        private static async Task<string> GetUrlFromShortCode(string shortCode)
+        private async Task<string> GetUrlFromShortCode(string shortcode)
         {
             HttpResponseMessage response;
             using (var client = new HttpClient())
@@ -71,12 +61,12 @@ namespace ReadyPlayerMe
                 client.BaseAddress = new Uri(ShortCodeBaseUrl);
                 client.DefaultRequestHeaders.Accept.Clear();
 
-                response = await client.GetAsync(shortCode);
+                response = await client.GetAsync(shortcode);
             }
 
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
-                throw new Exception($"Exceptions.ShortCodeNotFound: Avatar at given short code { shortCode } is not found. Please make sure you entered a valid short code. HttpStatusCode: { ((int)response.StatusCode)} - { response.StatusCode }");
+                throw new Exception($"Exceptions.ShortCodeNotFound: Avatar at given short code { shortcode } is not found. Please make sure you entered a valid short code. HttpStatusCode: { ((int)response.StatusCode)} - { response.StatusCode }");
             }
 
             return response.RequestMessage.RequestUri.AbsoluteUri;

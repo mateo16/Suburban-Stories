@@ -4,7 +4,7 @@ using System.Collections;
 using Siccity.GLTFUtility;
 using UnityEngine.Networking;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     /// <summary>
     ///     Loads avatar models from URL and instantates to the current scene.
@@ -18,8 +18,7 @@ namespace ReadyPlayerMe
         ///     Load Avatar GameObject from given GLB url.
         /// </summary>
         /// <param name="url">GLB Url acquired from readyplayer.me</param>
-        /// <param name="onAvatarImported">Callback method that returns reference to Avatar GameObject</param>
-        /// <param name="onAvatarLoaded">Callback method that returns reference to avatar game object and avatars meta data</param>
+        /// <param name="callback">Callback method that returns reference to Avatar GameObject</param>
         public void LoadAvatar(string url, Action<GameObject> onAvatarImported = null, Action<GameObject, AvatarMetaData> onAvatarLoaded = null)
         {
             LoadOperation operation = new LoadOperation();
@@ -28,8 +27,8 @@ namespace ReadyPlayerMe
         }
 
         /// <summary>
-        /// LoadOperation is a simplified avatar loader without local download and caching of models.
-        /// Operations are encapsulated not to lose the data of the avatar since they load asynchronously.
+        /// LoadOperation is a simplified avatar loader without local download and cacheing of models.
+        /// Operations are encaptulated not to lose the data of the avatar since they load asyncronously.
         /// </summary>
         class LoadOperation : AvatarLoaderBase
         {

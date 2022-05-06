@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
-using static ReadyPlayerMe.ExtensionMethods;
+using static Wolf3D.ReadyPlayerMe.AvatarSDK.ExtensionMethods;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     [DisallowMultipleComponent]
     [AddComponentMenu("Ready Player Me/Eye Animation Handler", 0)]
     public class EyeAnimationHandler : MonoBehaviour
     {
-        [Range(0, 1)] public float BlinkSpeed = 0.1f;
-        [Range(1, 10)] public float BlinkRate = 3f;
+        [SerializeField, Range(0, 1)] private float blinkSpeed = 0.1f;
         private WaitForSeconds blinkDelay;
 
         private const int VerticalMargin = 15;
@@ -29,7 +28,7 @@ namespace ReadyPlayerMe
         private const string HalfbodyRightEyeBoneName = "Armature/Hips/Spine/Neck/Head/RightEye";
         private const string FullbodyRightEyeBoneName = "Armature/Hips/Spine/Spine1/Spine2/Neck/Head/RightEye";
         private const string ArmatureHipsLeftUpLegBoneName = "Armature/Hips/LeftUpLeg";
-        private const float EyeBlinkValue = 100f;
+        private const float EyeBlinkValue = 70f;
 
         private bool isFullbody;
         private bool hasEyeBlendshapes;
@@ -40,22 +39,14 @@ namespace ReadyPlayerMe
             
             eyeBlinkLeftBlendshapeIndex = headMesh.sharedMesh.GetBlendShapeIndex(EyeBlinkLeftBlendshapeName);
             eyeBlinkRightBlendshapeIndex = headMesh.sharedMesh.GetBlendShapeIndex(EyeBlinkRightBlendshapeName);
-            
+            blinkDelay = new WaitForSeconds(blinkSpeed);
             hasEyeBlendshapes = (eyeBlinkLeftBlendshapeIndex > -1 && eyeBlinkRightBlendshapeIndex > -1);
 
             isFullbody = transform.Find(ArmatureHipsLeftUpLegBoneName);
             leftEyeBone = transform.Find(isFullbody ? FullbodyLeftEyeBoneName : HalfbodyLeftEyeBoneName);
             rightEyeBone = transform.Find(isFullbody ? FullbodyRightEyeBoneName : HalfbodyRightEyeBoneName);
 
-            Initialize();
-        }
-
-        public void Initialize()
-        {
-            blinkDelay = new WaitForSeconds(BlinkSpeed);
-
-            CancelInvoke();
-            InvokeRepeating(nameof(AnimateEyes), 1, BlinkRate);
+            InvokeRepeating(nameof(AnimateEyes), 1, 3);
         }
 
         private void AnimateEyes()

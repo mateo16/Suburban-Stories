@@ -5,7 +5,7 @@ using System.Collections;
 using UnityEngine.Networking;
 using Object = UnityEngine.Object;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     /// <summary>
     ///     Loads avatar models from URL and instantates to the current scene.

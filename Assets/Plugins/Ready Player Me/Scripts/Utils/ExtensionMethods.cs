@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Linq;
 using System.Collections;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     public static class ExtensionMethods
     {
@@ -20,7 +20,7 @@ namespace ReadyPlayerMe
         {
             if (coroutineRunner == null)
             {
-                coroutineRunner = new GameObject("[CoroutineRunner]").AddComponent<CoroutineRunner>();
+                coroutineRunner = new GameObject("[Wolf3D.CoroutineRunner]").AddComponent<CoroutineRunner>();
                 coroutineRunner.hideFlags = HideFlags.DontSaveInEditor | HideFlags.HideInHierarchy | HideFlags.HideInInspector | HideFlags.NotEditable | HideFlags.DontSaveInBuild;
                 coroutineRunner.gameObject.hideFlags = HideFlags.DontSaveInEditor | HideFlags.HideInHierarchy | HideFlags.HideInInspector | HideFlags.NotEditable | HideFlags.DontSaveInBuild;
             }
@@ -30,21 +30,21 @@ namespace ReadyPlayerMe
         #endregion
 
         #region Get Mesh
-        public enum MeshType
-        {
-            HeadMesh,
+        public enum MeshType 
+        { 
+            HeadMesh, 
             BeardMesh,
             TeethMesh
         }
 
-        private static readonly string[] HeadMeshNameFilter = {
-            "Avatar_Renderer_Head",
-            "Avatar_Renderer_Avatar"
+        private static readonly string[] HeadMeshNameFilter = { 
+            "Wolf3D.Avatar_Renderer_Head", 
+            "Wolf3D.Avatar_Renderer_Avatar" 
         };
 
-        private static readonly string BeardMeshNameFilter = "Avatar_Renderer_Beard";
+        private static readonly string BeardMeshNameFilter = "Wolf3D.Avatar_Renderer_Beard";
 
-        private static readonly string TeethMeshNameFilter = "Avatar_Renderer_Teeth";
+        private static readonly string TeethMeshNameFilter = "Wolf3D.Avatar_Renderer_Teeth";
 
         public static SkinnedMeshRenderer GetMeshRenderer(this GameObject gameObject, MeshType meshType)
         {
@@ -74,7 +74,7 @@ namespace ReadyPlayerMe
                     {
                         throw new Exception($"ExtensionMethods.GetMeshRenderer: {meshType} not found on {gameObject.name}. Make sure this method is called on a avatar game object.");
                     }
-                    else if (allChildren.Count > 1)
+                    else if(allChildren.Count > 1)
                     {
                         Debug.Log($"ExtensionMethods.GetMeshRenderer: {meshType} not found on {gameObject.name}.");
                     }
