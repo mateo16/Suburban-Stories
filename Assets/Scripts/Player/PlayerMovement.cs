@@ -64,7 +64,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(sprintKey))
         {
-            StaminaBar.instance.UseStamina(Time.deltaTime * sprintStamina);
+            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            {
+                StaminaBar.instance.UseStamina(Time.deltaTime * sprintStamina);
+            }  
         }
     }
 }

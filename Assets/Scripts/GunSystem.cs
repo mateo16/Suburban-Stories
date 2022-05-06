@@ -20,7 +20,11 @@ public class GunSystem : MonoBehaviour
 
     public GameObject muzzleFlash;
     public GameObject bulletHoleGraphic;
+
     Ammo AmmoAmount = new Ammo();
+
+    public GameObject enemyImpact;
+
     //public TextMeshProUGUI text;
 
     private void Start()
@@ -64,10 +68,15 @@ public class GunSystem : MonoBehaviour
             if (rayHit.collider.CompareTag("Enemy"))
             {
                 rayHit.collider.GetComponent<EnemyDamage>().TakeDamage(damage);
+                Instantiate(enemyImpact, rayHit.point, Quaternion.LookRotation(rayHit.normal));
             }
+            else
+            {
+                Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.LookRotation(rayHit.normal));
+            }
+
         }
 
-        Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.LookRotation(rayHit.normal));
         Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
