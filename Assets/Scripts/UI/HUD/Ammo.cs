@@ -9,6 +9,7 @@ public class Ammo : MonoBehaviour
     int MagazineSize;
     public Text AmmoText;
     bool HeldGun = false;
+
     void Start()
     {
 
@@ -23,6 +24,11 @@ public class Ammo : MonoBehaviour
         if (HeldGun)
         {
             AmmoText.text = AmmoLeft + "/" + MagazineSize;
+        }
+        if(PickUpController.slotFull && PickUpController.isGunHold){
+            AmmoText.enabled = true;
+        }else{
+            AmmoText.enabled = false;
         }
     }
 

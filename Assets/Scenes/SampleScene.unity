@@ -2462,13 +2462,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567157111}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.217, y: 2.55, z: 2.884}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 11480591}
   - {fileID: 523646316}
-  m_Father: {fileID: 615229726}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &567157113
 MonoBehaviour:
@@ -2534,7 +2534,7 @@ MonoBehaviour:
   pickUpRange: 4
   dropForwardForce: 15
   dropUpwardForce: 7
-  equipped: 1
+  equipped: 0
 --- !u!54 &567157116
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2669,8 +2669,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.31, y: -0.416, z: 0.695}
   m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1.4285713}
-  m_Children:
-  - {fileID: 567157112}
+  m_Children: []
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2885,8 +2884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8112819fa10b2549869292e920d4a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlinkSpeed: 0.1
-  BlinkRate: 3
+  blinkSpeed: 0.1
 --- !u!95 &661886027
 Animator:
   serializedVersion: 3
@@ -8675,8 +8673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8112819fa10b2549869292e920d4a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlinkSpeed: 0.1
-  BlinkRate: 3
+  blinkSpeed: 0.1
 --- !u!95 &1769825949
 Animator:
   serializedVersion: 3
