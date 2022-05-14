@@ -5,6 +5,8 @@ using UnityEngine;
 public class PickUpController : MonoBehaviour
 {
     public GunSystem gunScript;
+    public MeleeSystem meleeScript;
+    public Animator meleeAnimator;
     public Rigidbody rb;
     public BoxCollider coll;
     public Transform player, gunContainer, fpsCam;
@@ -24,6 +26,11 @@ public class PickUpController : MonoBehaviour
                 gunScript.enabled = false;
                 isGunHold = false;
             }
+            if (meleeScript != null)
+            {
+                meleeAnimator.enabled = false;
+                meleeScript.enabled = false;
+            }
             rb.isKinematic = false;
             coll.isTrigger = false;
         }
@@ -32,6 +39,11 @@ public class PickUpController : MonoBehaviour
             if(gunScript != null){
                 gunScript.enabled = true;
                 isGunHold = true;
+            }
+            if(meleeScript != null)
+            {
+                meleeAnimator.enabled = true;
+                meleeScript.enabled = true;
             }
             rb.isKinematic = true;
             coll.isTrigger = true;
@@ -63,6 +75,11 @@ public class PickUpController : MonoBehaviour
             gunScript.enabled = true;
             isGunHold = true;
         }
+        if (meleeScript != null)
+        {
+            meleeAnimator.enabled = true;
+            meleeScript.enabled = true;
+        }
     }
     private void Drop()
     { 
@@ -73,7 +90,11 @@ public class PickUpController : MonoBehaviour
             gunScript.enabled = false;
             isGunHold = false;
         }
-        
+        if (meleeScript != null)
+        {
+            meleeAnimator.enabled = false;
+            meleeScript.enabled = false;
+        }
 
         transform.SetParent(null);
 
