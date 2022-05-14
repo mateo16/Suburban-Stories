@@ -37,8 +37,8 @@ namespace Wolf3D.ReadyPlayerMe.AvatarSDK
         {
             headMesh = gameObject.GetMeshRenderer(MeshType.HeadMesh);
             
-            eyeBlinkLeftBlendshapeIndex = headMesh.sharedMesh.GetBlendShapeIndex(EyeBlinkLeftBlendshapeName);
-            eyeBlinkRightBlendshapeIndex = headMesh.sharedMesh.GetBlendShapeIndex(EyeBlinkRightBlendshapeName);
+            //eyeBlinkLeftBlendshapeIndex = headMesh.sharedMesh.GetBlendShapeIndex(EyeBlinkLeftBlendshapeName);
+            //eyeBlinkRightBlendshapeIndex = headMesh.sharedMesh.GetBlendShapeIndex(EyeBlinkRightBlendshapeName);
             blinkDelay = new WaitForSeconds(blinkSpeed);
             hasEyeBlendshapes = (eyeBlinkLeftBlendshapeIndex > -1 && eyeBlinkRightBlendshapeIndex > -1);
 
@@ -68,8 +68,8 @@ namespace Wolf3D.ReadyPlayerMe.AvatarSDK
                 Quaternion.Euler(horizontal, vertical, 0) : 
                 Quaternion.Euler(horizontal - 90, 0, vertical + 180);
 
-            leftEyeBone.localRotation = rotation;
-            rightEyeBone.localRotation = rotation;
+            //leftEyeBone.localRotation = rotation;
+            //rightEyeBone.localRotation = rotation;
         }
 
         private IEnumerator BlinkEyes()
