@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Slider healthBar;
-    public float currentHealth;
+    public static float currentHealth;
     public float maxHealth;
     public static HealthBar instance;
     private void Awake()
@@ -15,9 +15,20 @@ public class HealthBar : MonoBehaviour
     }
     void Start()
     {
-        currentHealth = maxHealth;
         healthBar.maxValue = maxHealth;
-        healthBar.value = maxHealth;
+        Debug.Log(FireBase.LoadHealth);
+        if(FireBase.LoadHealth != 0)
+        {
+            Debug.Log("funca");
+            healthBar.value = FireBase.LoadHealth;
+            currentHealth = FireBase.LoadHealth;
+        }
+        else
+        {
+            healthBar.value = maxHealth;
+            currentHealth = maxHealth;
+        }
+
     }
 
     // Update is called once per frame
@@ -32,5 +43,11 @@ public class HealthBar : MonoBehaviour
     {
             currentHealth -= amount;
             healthBar.value = currentHealth; 
+    }
+
+    public void aLoadHealth(float amount)
+    {
+        currentHealth = amount;
+
     }
 }

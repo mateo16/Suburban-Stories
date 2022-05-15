@@ -8,6 +8,12 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
 
+    private PlayerData playerData;
+
+    private void Start()
+    {
+        playerData = new PlayerData();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -38,7 +44,17 @@ public class PauseMenu : MonoBehaviour
     }
     public void SaveOnline()
     {
-
+        playerData.health = HealthBar.currentHealth;
+        playerData.WorldName = MainMenu.currentWorldName;
+        if(playerData.WorldName != null)
+        {
+            Debug.Log("funciono");
+            FindObjectOfType<FireBase>().PostToDatabase(playerData);
+        }
+        else
+        {
+            Debug.Log("El mundo no tiene nombre");
+        }
     }
     public void Settings()
     {

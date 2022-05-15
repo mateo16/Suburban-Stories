@@ -2,6 +2,7 @@
 
 public class PlayerData
 {
-    public string name;
-    public int health;
+    public string Username;
+    public string WorldName;
+    public float health;
 }

@@ -663,7 +663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: Save Online
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67aef242f31ced94fb6dc6ac5b84cc96, type: 2}
   m_sharedMaterial: {fileID: -8752415438805689533, guid: 67aef242f31ced94fb6dc6ac5b84cc96, type: 2}
@@ -6457,7 +6457,7 @@ RectTransform:
   m_Children:
   - {fileID: 1885536359}
   m_Father: {fileID: 1299955999}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7646,7 +7646,7 @@ RectTransform:
   m_Children:
   - {fileID: 64192181}
   m_Father: {fileID: 1299955999}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8004,8 +8004,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 873700608}
-  - {fileID: 1264712607}
   - {fileID: 1106946480}
+  - {fileID: 1264712607}
   - {fileID: 1717387570}
   - {fileID: 1289952280}
   m_Father: {fileID: 31007147}
@@ -9505,7 +9505,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1649102712}
-  currentHealth: 0
   maxHealth: 10
 --- !u!1 &1655913512
 GameObject:
@@ -9932,7 +9931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631d1560a60424f5e9cbb8bcc2db3620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firebaseLink: 
+  firebaseLink: https://suburbanstories-adaf2-default-rtdb.firebaseio.com/
 --- !u!4 &1733575670
 Transform:
   m_ObjectHideFlags: 0
@@ -10514,7 +10513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Save Online
+  m_text: Settings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67aef242f31ced94fb6dc6ac5b84cc96, type: 2}
   m_sharedMaterial: {fileID: -8752415438805689533, guid: 67aef242f31ced94fb6dc6ac5b84cc96, type: 2}
