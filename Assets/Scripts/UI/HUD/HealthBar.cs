@@ -40,13 +40,16 @@ public class HealthBar : MonoBehaviour
     }
     public void ReduceHealth(float amount)
     {
-            currentHealth -= amount;
-            healthBar.value = currentHealth; 
+        currentHealth -= amount;
+        healthBar.value = currentHealth;
+
+        if(currentHealth <= 0)
+        {
+            transform.position = new Vector3(0, 3, -3);
+            healthBar.value = maxHealth;
+            currentHealth = maxHealth;
+        }  
     }
 
-    public void aLoadHealth(float amount)
-    {
-        currentHealth = amount;
 
-    }
 }

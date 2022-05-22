@@ -18,6 +18,7 @@ public class EnemyAiScript : MonoBehaviour
     public bool playerInSightRange, playerInAttackRange;
 
     public GameObject projectile;
+    public Transform firePoint;
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -64,10 +65,10 @@ public class EnemyAiScript : MonoBehaviour
         transform.LookAt(player);
         if(!alreadyAttacked)
         {
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, firePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
 
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 2f, ForceMode.Impulse);
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timebetweenAttacks);
