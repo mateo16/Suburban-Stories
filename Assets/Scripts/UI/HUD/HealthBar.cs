@@ -9,6 +9,7 @@ public class HealthBar : MonoBehaviour
     public static float currentHealth;
     public float maxHealth;
     public static HealthBar instance;
+
     private void Awake()
     {
         instance = this;
@@ -16,10 +17,8 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         healthBar.maxValue = maxHealth;
-        Debug.Log(FireBase.LoadHealth);
         if(FireBase.LoadHealth != 0)
         {
-            Debug.Log("funca");
             healthBar.value = FireBase.LoadHealth;
             currentHealth = FireBase.LoadHealth;
         }
@@ -39,7 +38,7 @@ public class HealthBar : MonoBehaviour
             ReduceHealth(1);
         }
     }
-    void ReduceHealth(float amount)
+    public void ReduceHealth(float amount)
     {
             currentHealth -= amount;
             healthBar.value = currentHealth; 
