@@ -14,9 +14,9 @@ public class Ammo : MonoBehaviour
     {
 
     }
-    public void StartAmmo(int AmmoAmount){
+    public void StartAmmo(int AmmoAmount , int bulletsLeft){
         MagazineSize = AmmoAmount;
-        AmmoLeft = AmmoAmount;
+        AmmoLeft = bulletsLeft;
         HeldGun = true;
     }
     void Update()
@@ -25,6 +25,7 @@ public class Ammo : MonoBehaviour
         {
             AmmoText.text = AmmoLeft + "/" + MagazineSize;
         }
+
         if(PickUpController.slotFull && PickUpController.isGunHold){
             AmmoText.enabled = true;
         }else{

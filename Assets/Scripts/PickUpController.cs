@@ -39,6 +39,7 @@ public class PickUpController : MonoBehaviour
             if(gunScript != null){
                 gunScript.enabled = true;
                 isGunHold = true;
+                gunScript.Scriptammo.StartAmmo(gunScript.magazineSize, gunScript.bulletsLeft);
             }
             if(meleeScript != null)
             {
@@ -74,6 +75,7 @@ public class PickUpController : MonoBehaviour
         if(gunScript != null){
             gunScript.enabled = true;
             isGunHold = true;
+            gunScript.Scriptammo.StartAmmo(gunScript.magazineSize, gunScript.bulletsLeft);
         }
         if (meleeScript != null)
         {

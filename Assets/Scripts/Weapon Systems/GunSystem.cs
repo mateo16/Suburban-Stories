@@ -9,7 +9,7 @@ public class GunSystem : MonoBehaviour
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
-    int bulletsLeft, bulletsShot;
+    public int bulletsLeft, bulletsShot;
     public Ammo Scriptammo;
 
     bool shooting, readyToShoot, reloading;
@@ -28,7 +28,6 @@ public class GunSystem : MonoBehaviour
 
     private void Start()
     {
-        Scriptammo.StartAmmo(magazineSize);
         bulletsLeft = magazineSize;
         readyToShoot = true;
     }
@@ -85,9 +84,9 @@ public class GunSystem : MonoBehaviour
         Invoke("ResetShot", timeBetweenShooting);
 
         if(bulletsShot > 0 && bulletsLeft > 0)
-        Invoke("Shoot", timeBetweenShots);
-     
-        
+        {
+            Invoke("Shoot", timeBetweenShots);
+        }
     }
 
     private void ResetShot()
