@@ -8,13 +8,16 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isSprinting => canSprint && Input.GetKey(sprintKey);
     private bool canSprint = true;
-    private bool isCrouching => Input.GetKey(crouchKey);
+    bool canCrouch = true;
+    bool canCrouch2 = false;
+    public bool isCrouching => Input.GetKey(crouchKey);
     private KeyCode sprintKey = KeyCode.LeftShift;
     private KeyCode crouchKey = KeyCode.LeftControl;
 
     public Animator anim;
+    public MouseLook MouseLookScript;
 
-    public float crouchSpeed = 2f;
+    public float crouchSpeed = 2.5f;
     public float walkSpeed = 5f;
     public float runSpeed = 10f;
     public float gravity = -10f;
@@ -42,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (anim != null)
             {
-                anim.SetBool("IsMoving",false);
+                anim.SetBool("IsMoving", false);
             }
         }
 
@@ -78,6 +81,18 @@ public class PlayerMovement : MonoBehaviour
         {
             controller.Move(move * (isSprinting ? runSpeed : walkSpeed) * Time.deltaTime);
         }
+        if (isCrouching && canCrouch)
+        {
+            MouseLookScript.Crouching(isCrouching);
+            canCrouch = false;
+            canCrouch2 = true;
+        }
+        if (!isCrouching && canCrouch2)
+        {
+            MouseLookScript.Crouching(isCrouching);
+            canCrouch = true;
+            canCrouch2 = false;
+        }
         
 
         if(Input.GetButtonDown("Jump") && isGrounded)
@@ -106,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
                 StaminaBar.instance.UseStamina(Time.deltaTime * sprintStamina);
             }  
         }
+        
 
     }
 }

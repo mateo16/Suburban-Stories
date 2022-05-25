@@ -23,5 +23,18 @@ public class MouseLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+
+
+    }
+    public void Crouching(bool isCrouching)
+    {
+        if (isCrouching)
+        {
+            transform.Translate(Vector3.down, Space.World);
+        }
+        else
+        {
+            transform.Translate(Vector3.up, Space.World);
+        }
     }
 }

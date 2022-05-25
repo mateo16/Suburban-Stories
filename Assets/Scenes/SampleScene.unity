@@ -28264,7 +28264,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1769825951}
   anim: {fileID: 1769825949}
-  crouchSpeed: 0
+  MouseLookScript: {fileID: 963194229}
+  crouchSpeed: 2.5
   walkSpeed: 5
   runSpeed: 8
   gravity: -18
