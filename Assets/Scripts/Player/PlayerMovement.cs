@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isSprinting => canSprint && Input.GetKey(sprintKey);
     private bool canSprint = true;
+    private bool crouching = false;
     private KeyCode sprintKey = KeyCode.LeftShift;
 
     public Animator anim;
 
+    public float crouchSpeed = 0f;
     public float walkSpeed = 5f;
     public float runSpeed = 10f;
     public float gravity = -10f;
@@ -67,7 +69,16 @@ public class PlayerMovement : MonoBehaviour
 
         canSprint = StaminaBar.instance.thereIsStamina;
 
-        controller.Move(move * (isSprinting ? runSpeed : walkSpeed) * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            controller.Move(move * crouchSpeed * Time.deltaTime);
+        }
+        else
+        {
+            
+            controller.Move(move * (isSprinting ? runSpeed : walkSpeed) * Time.deltaTime);
+        }
+        
 
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -95,5 +106,6 @@ public class PlayerMovement : MonoBehaviour
                 StaminaBar.instance.UseStamina(Time.deltaTime * sprintStamina);
             }  
         }
+
     }
 }
