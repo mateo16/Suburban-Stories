@@ -264,6 +264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: streetbanch2 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1325,6 +1329,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
       propertyPath: m_Name
       value: streetbanch2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
       propertyPath: m_RootOrder
@@ -3985,6 +3993,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: streetbanch2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -5767,6 +5779,11 @@ Transform:
   m_Father: {fileID: 1515238153}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &385776730 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400008, guid: 67f636c2aae119d47ae5ee4a1d6c3549, type: 3}
+  m_PrefabInstance: {fileID: 1726569544}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &390651413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5777,6 +5794,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
       propertyPath: m_Name
       value: streetbanch2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
       propertyPath: m_RootOrder
@@ -6649,6 +6670,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: streetbanch2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -7068,6 +7093,99 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474436273}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &474690464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 474690465}
+  - component: {fileID: 474690466}
+  m_Layer: 0
+  m_Name: Directional Light (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &474690465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474690464}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.2700005, y: 3.94, z: 3.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 385776730}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &474690466
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474690464}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 2
+  m_Range: 30
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.802082
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &479504029
 GameObject:
   m_ObjectHideFlags: 0
@@ -7206,6 +7324,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
       propertyPath: m_Name
       value: streetbanch2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
       propertyPath: m_RootOrder
@@ -8851,7 +8973,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615229725}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.31, y: -0.416, z: 0.695}
+  m_LocalPosition: {x: 0.31, y: -0.416, z: 0.907}
   m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1.4285713}
   m_Children:
   - {fileID: 1159662122}
@@ -10383,11 +10505,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703455172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.51, y: 7.05, z: 4.62}
+  m_LocalPosition: {x: 4.9799995, y: 4.4500003, z: 2.1650648}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_Father: {fileID: 872499529}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -11215,7 +11337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.07753563, a: 1}
+  m_Color: {r: 0.5, g: 0.13300033, b: 0.011792451, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13549,6 +13671,11 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00042071939, y: -0.4492266, z: -0.002647534}
     m_Extent: {x: 0.5738478, y: 0.56059945, z: 0.16259478}
   m_DirtyAABB: 0
+--- !u!4 &872499529 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400016, guid: dd91cbe4370b50b48b060d552ca3a71f, type: 3}
+  m_PrefabInstance: {fileID: 1563990159}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &873646153
 GameObject:
   m_ObjectHideFlags: 0
@@ -14137,7 +14264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.59, z: 0.36}
+  m_LocalPosition: {x: 0, y: 1.59, z: 0.045}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 615229726}
@@ -21280,6 +21407,25 @@ Transform:
   m_Father: {fileID: 1212544162}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1332289639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4787399738460697952, guid: efd9bf61c1085b6489e334e522119694, type: 3}
+  m_PrefabInstance: {fileID: 1712704154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1332289643
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332289639}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300054, guid: 5e39bcc0421099647829e0f7008e40a0, type: 3}
 --- !u!1 &1334949175
 GameObject:
   m_ObjectHideFlags: 0
@@ -22541,6 +22687,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
       propertyPath: m_Name
       value: streetbanch2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
       propertyPath: m_RootOrder
@@ -26000,9 +26150,9 @@ RectTransform:
   m_Father: {fileID: 469812476}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -306.9, y: 173.19998}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150.75, y: -51}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649102712
@@ -27265,7 +27415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 67f636c2aae119d47ae5ee4a1d6c3549, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.8
+      value: 2.77
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 67f636c2aae119d47ae5ee4a1d6c3549, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27837,9 +27987,9 @@ RectTransform:
   m_Father: {fileID: 469812476}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -306.9, y: 137.7}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150.75, y: -84}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1759682951
@@ -31746,6 +31896,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
       propertyPath: m_Name
       value: streetbanch2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d692411747720b244b9b037b1e2a4583, type: 3}
       propertyPath: m_RootOrder
