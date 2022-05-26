@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator anim;
     public MouseLook MouseLookScript;
-
     public float crouchSpeed = 2.5f;
     public float walkSpeed = 5f;
     public float runSpeed = 10f;
@@ -121,7 +120,5 @@ public class PlayerMovement : MonoBehaviour
                 StaminaBar.instance.UseStamina(Time.deltaTime * sprintStamina);
             }  
         }
-        
-
     }
 }
