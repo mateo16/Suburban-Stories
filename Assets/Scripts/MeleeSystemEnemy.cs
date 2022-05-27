@@ -30,9 +30,9 @@ public class MeleeSystemEnemy : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Enemy" && isAttacking)
+        if (other.tag == "Player" && isAttacking)
         {
-            other.GetComponent<EnemyDamage>().TakeDamage(damage);
+            other.GetComponent<HealthBar>().ReduceHealth(damage);
             Instantiate(enemyImpact, bloodPoint.position, bloodPoint.rotation);
             isAttacking = false;
         }

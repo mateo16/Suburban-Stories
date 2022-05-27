@@ -60,7 +60,7 @@ public class EnemyAiScriptMelee : MonoBehaviour
     }
     private void AttackPlayer()
     {
-        agent.SetDestination(transform.position);
+        agent.SetDestination(player.position);
 
         transform.LookAt(player);
         if (!alreadyAttacked)
