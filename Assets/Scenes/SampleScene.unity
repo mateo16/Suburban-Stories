@@ -1623,6 +1623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 56464414}
+  - component: {fileID: 56464415}
   m_Layer: 0
   m_Name: Waypoints
   m_TagString: Untagged
@@ -1664,6 +1665,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &56464415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56464413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ea41cb193f97430f971900326c31044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedestrianPrefab: {fileID: 1016631301}
+  pedestrianToSpawn: 10
 --- !u!1 &58940407
 GameObject:
   m_ObjectHideFlags: 0
@@ -19027,6 +19042,7 @@ GameObject:
   - component: {fileID: 1016631302}
   - component: {fileID: 1016631304}
   - component: {fileID: 1016631309}
+  - component: {fileID: 1016631310}
   m_Layer: 7
   m_Name: Villero
   m_TagString: Enemy
@@ -19134,7 +19150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016631301}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 3.72, y: 2.66, z: 37.21}
+  m_LocalPosition: {x: 3.72, y: 2.66, z: 43.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 862588795}
@@ -19174,6 +19190,19 @@ MonoBehaviour:
     - Por ultimo, mi querido amigo, a quien he llegado a conocer de una forma muy
       profunda a medida que se desarrollo esta conversacion, he de informarle que
       puede correr con la tecla SHIFT. Muchas gracias por su atencion
+--- !u!114 &1016631310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016631301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 798c3256a9a024344a736c0de4e887c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWaypoint: {fileID: 260590863}
 --- !u!1 &1018644979
 GameObject:
   m_ObjectHideFlags: 0
@@ -41373,7 +41402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053879752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1646453546}

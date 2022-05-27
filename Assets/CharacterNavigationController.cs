@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterNavigationController : MonoBehaviour
 {
 
-    public int movementSpeed = 1;
+    public float movementSpeed = 1;
     public int rotationSpeed = 120;
     public float stopDistance = 2.5f;
     public Vector3 destination;
@@ -15,7 +15,7 @@ public class CharacterNavigationController : MonoBehaviour
 
     void Start()
     {
-
+        movementSpeed = Random.Range(0.75f, 1.5f);
     }
 
     void Update()
@@ -45,8 +45,7 @@ public class CharacterNavigationController : MonoBehaviour
             var fwdDotProduct = Vector3.Dot(transform.forward, velocity);
             var rightDotProduct = Vector3.Dot(transform.right, velocity);
 
-            //animator.SetFloat("Horiontal",rightDotProduct);
-            //animator.SetFloat("Forward",fwdDotProduct);
+            transform.position = Vector3.MoveTowards(transform.position, destination, movementSpeed * Time.deltaTime);
         }
         else
         {
@@ -56,7 +55,7 @@ public class CharacterNavigationController : MonoBehaviour
 
     public void SetDestination(Vector3 destination)
     {
-        //this.SetDestination = destination;
-        //reachedDestination = false;
+        this.destination = destination;
+        reachedDestination = false;
     }
 }
