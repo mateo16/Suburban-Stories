@@ -5279,8 +5279,7 @@ MonoBehaviour:
   previousWaypoint: {fileID: 373137250}
   nextWaypoint: {fileID: 741797164}
   width: 1.5
-  branches:
-  - {fileID: 0}
+  branches: []
   branchRatio: 0.5
 --- !u!4 &264527569
 Transform:
@@ -7307,8 +7306,7 @@ MonoBehaviour:
   previousWaypoint: {fileID: 743253110}
   nextWaypoint: {fileID: 264527568}
   width: 1.5
-  branches:
-  - {fileID: 0}
+  branches: []
   branchRatio: 0.5
 --- !u!4 &373137251
 Transform:
@@ -25196,7 +25194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -331}
+  m_AnchoredPosition: {x: 0, y: -1000}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1254089673
@@ -40109,7 +40107,7 @@ MonoBehaviour:
       tiene la capacidad de disparar a sus enemigos utilizando el click izquiero
       en su raton
     - Tambien, usted posee la habilidad de arrojar sus armas al suelo utilizando
-      la tecla Q y vover a ponerla en sus manos con la tecla E
+      la tecla Q y voLver a colocarla en sus manos con la tecla E
     - Por ultimo, mi querido amigo, a quien he llegado a conocer de una forma muy
       profunda a medida que se desarrollo esta conversacion, he de informarle que
       puede correr con la tecla SHIFT. Muchas gracias por su atencion
