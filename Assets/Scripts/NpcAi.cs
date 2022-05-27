@@ -3,36 +3,32 @@ using UnityEngine.AI;
 
 public class NpcAi : MonoBehaviour
 {
-    public NavMeshAgent agent;
-    public Transform player;
-    public LayerMask whatIsGround, whatIsPlayer;
-
-    public Vector3 walkPoint;
-    bool walkPointSet;
-    public float walkPointRange;
+    public Dialogue dialogue;
+    public static bool GameIsPaused = false;
     private void Update()
     {
-        Patroling();
+        
     }
-    private void Patroling()
+    /*void OnCollisionEnter(Collision collision)
     {
-        if (!walkPointSet) SearchWalkPoint();
-
-        if (walkPointSet)
-            agent.SetDestination(walkPoint);
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
+        if(collision.rigidbody.tag == "Player")
+        {
+            //Collider.GetComponent<DialogueManager>().StartDialogue(Dialogue dialogue);
+            TriggerDialogue();
+            Debug.Log("colisssiooooon");
+        }
+    }*/
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            TriggerDialogue();
+            Debug.Log("triggeeeeeeer");
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
-    private void SearchWalkPoint()
+    public void TriggerDialogue()
     {
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-            walkPointSet = true;
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 }
