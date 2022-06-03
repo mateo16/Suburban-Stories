@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace DapperDino.Items{
-    public interface ItemContainer
+    public interface IItemContainer
 {
     ItemSlot AddItem(ItemSlot ItemSlot);
 
@@ -11,6 +8,10 @@ namespace DapperDino.Items{
     void RemoveAt(int slotIndex);
 
     void Swap(int indexOne, int indexTwo);
+    
+    bool HasItem(InventoryItem item);
+
+    int GetTotalQuantity(InventoryItem item);
 }
 }
 
