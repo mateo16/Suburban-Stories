@@ -1,5 +1,6 @@
 
 namespace DapperDino.Items{
+
     public interface IItemContainer
 {
     ItemSlot AddItem(ItemSlot ItemSlot);
