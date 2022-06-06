@@ -1,3 +1,4 @@
+#if UNITY_ANDROID
 using UnityEngine;
 using UnityEngine.Android;
 
@@ -153,3 +154,4 @@ public class AndroidWebViewWindow : WebViewWindowBase
         webView = null;
     }
 }
+#endif

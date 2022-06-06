@@ -2,17 +2,16 @@ using UnityEngine;
 
 public class PartnerSO : ScriptableObject
 {
-    private const string DefaultSubdomain = "demo";
-
     public string Subdomain = null;
 
     public string GetUrl()
     {
-        return $"https://{GetSubdomain()}.readyplayer.me/avatar";
+        return $"https://{GetSubdomain()}.readyplayer.me/avatar?frameApi";
     }
 
     public string GetSubdomain()
     {
-        return Subdomain ?? DefaultSubdomain;
+        if (string.IsNullOrEmpty(Subdomain)) Subdomain = "demo";
+        return Subdomain;
     }
 }
