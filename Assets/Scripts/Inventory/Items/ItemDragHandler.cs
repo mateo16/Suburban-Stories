@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using SuburbanStories.Events;
 
 namespace DapperDino.Items
 {
     public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler,IPointerEnterHandler,IPointerExitHandler
     {
         [SerializeField] protected ItemSlotUI itemSlotUI = null;
+        [SerializeField] protected HotbarItemEvent onMouseStartHoverItem = null;
+        [SerializeField] protected VoidEvent onMouseEndHoverItem = null;
 
         private CanvasGroup canvasGroup = null;
         private Transform originalParent = null;
         private bool isHovering = false;
 
-        public ItemSlotUI ItemSlotUI => ItemSlotUI;
+        public ItemSlotUI ItemSlotUI => itemSlotUI;
 
         private void Start() => canvasGroup = GetComponent<CanvasGroup>();
 
@@ -21,7 +24,8 @@ namespace DapperDino.Items
         {
             if (isHovering)
             {
-                //raise event
+                onMouseEndHoverItem.Raise();
+
                 isHovering = false;
             }
         }
@@ -29,7 +33,7 @@ namespace DapperDino.Items
         {
             if(eventData.button == PointerEventData.InputButton.Left)
             {
-                //raise event
+                onMouseEndHoverItem.Raise();
 
                 originalParent = transform.parent;
 
@@ -59,15 +63,13 @@ namespace DapperDino.Items
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            //onMouseStartHoverItem.Raise(ItemSlotUI.SlotItem);
-            //raise event
+            onMouseStartHoverItem.Raise(ItemSlotUI.SlotItem);
             isHovering = true;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            //onMouseEndHoverItem.Raise();
-            //raise event
+            onMouseEndHoverItem.Raise();
             isHovering = false;
         }
     }

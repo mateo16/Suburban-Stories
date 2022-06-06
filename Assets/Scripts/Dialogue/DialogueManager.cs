@@ -52,5 +52,6 @@ public class DialogueManager : MonoBehaviour
         {
             animator.SetBool("IsOpen", false);
             dialogueBox.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
         }
 }

@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Inventory_Player
   m_EditorClassIdentifier: 
   onInventoryItemsUpdated: {fileID: 11400000, guid: 2c3bbf5d95791422fa358dff24be36be, type: 2}
+  testItemSlot:
+    item: {fileID: 11400000, guid: eb52afe20ef50430db84c5932f7a545d, type: 2}
+    quantity: 20
