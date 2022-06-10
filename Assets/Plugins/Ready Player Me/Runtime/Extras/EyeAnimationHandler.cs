@@ -61,8 +61,8 @@ namespace ReadyPlayerMe
         {
             headMesh = gameObject.GetMeshRenderer(MeshType.HeadMesh);
             
-            eyeBlinkLeftBlendShapeIndex = headMesh.sharedMesh.GetBlendShapeIndex(EYE_BLINK_LEFT_BLEND_SHAPE_NAME);
-            eyeBlinkRightBlendShapeIndex = headMesh.sharedMesh.GetBlendShapeIndex(EYE_BLINK_RIGHT_BLEND_SHAPE_NAME);
+            //eyeBlinkLeftBlendShapeIndex = headMesh.sharedMesh.GetBlendShapeIndex(EYE_BLINK_LEFT_BLEND_SHAPE_NAME);
+            //eyeBlinkRightBlendShapeIndex = headMesh.sharedMesh.GetBlendShapeIndex(EYE_BLINK_RIGHT_BLEND_SHAPE_NAME);
             
             hasEyeBlendShapes = (eyeBlinkLeftBlendShapeIndex > -1 && eyeBlinkRightBlendShapeIndex > -1);
 
@@ -108,8 +108,8 @@ namespace ReadyPlayerMe
                 Quaternion.Euler(horizontal, vertical, 0) : 
                 Quaternion.Euler(horizontal - 90, 0, vertical + 180);
 
-            leftEyeBone.localRotation = rotation;
-            rightEyeBone.localRotation = rotation;
+            //leftEyeBone.localRotation = rotation;
+            //rightEyeBone.localRotation = rotation;
         }
 
         private IEnumerator BlinkEyes()
