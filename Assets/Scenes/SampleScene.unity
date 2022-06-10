@@ -1718,7 +1718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ea41cb193f97430f971900326c31044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pedestrianPrefab: {fileID: 4821118136347058676, guid: e89e9b7490bfd4144b644e54c57227e2, type: 3}
+  pedestrianPrefab: []
   pedestrianToSpawn: 10
 --- !u!1 &59497681
 GameObject:
@@ -12473,7 +12473,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkSpeed: 0.1
-  blinkInterval: 3
 --- !u!95 &661886027
 Animator:
   serializedVersion: 3
@@ -26395,7 +26394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1299955999
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33323,7 +33322,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkSpeed: 0.1
-  blinkInterval: 3
 --- !u!95 &1646453545
 Animator:
   serializedVersion: 3
@@ -35980,7 +35978,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkSpeed: 0.1
-  blinkInterval: 3
 --- !u!95 &1769825949
 Animator:
   serializedVersion: 3
@@ -40726,7 +40723,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkSpeed: 0.1
-  blinkInterval: 3
 --- !u!95 &1971452111
 Animator:
   serializedVersion: 3
