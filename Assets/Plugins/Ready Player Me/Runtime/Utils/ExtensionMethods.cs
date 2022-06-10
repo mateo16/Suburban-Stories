@@ -65,7 +65,7 @@ namespace ReadyPlayerMe
             }
             
             if (mesh == null) {
-                Debug.Log($"ExtensionMethods.GetMeshRenderer: Mesh type {meshType} not found on the Game Object.");
+                //Debug.Log($"ExtensionMethods.GetMeshRenderer: Mesh type {meshType} not found on the Game Object.");
                 return null;
             }
             
