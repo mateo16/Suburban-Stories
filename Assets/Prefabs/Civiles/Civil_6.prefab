@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1
   rotationSpeed: 120
-  stopDistance: 2.5
+  stopDistance: 1
   destination: {x: 0, y: 0, z: 0}
   reachedDestination: 0
 --- !u!114 &8407219737089217578

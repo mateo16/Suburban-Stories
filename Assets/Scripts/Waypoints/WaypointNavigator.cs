@@ -9,6 +9,7 @@ public class WaypointNavigator : MonoBehaviour
     public Waypoint currentWaypoint;
 
     int direction;
+    int inBranch = 0;
 
     private void Awake()
     {
@@ -33,9 +34,10 @@ public class WaypointNavigator : MonoBehaviour
             {
                 shouldBranch = Random.Range(0f, 1f) <= currentWaypoint.branchRatio ? true : false;
             }
-            if (shouldBranch)
+            if (shouldBranch && inBranch == 0)
             {
                 currentWaypoint = currentWaypoint.branches[Random.Range(0, currentWaypoint.branches.Count - 1)];
+                inBranch = 2;
             }
             else
             {
@@ -69,6 +71,11 @@ public class WaypointNavigator : MonoBehaviour
 
             
             controller.SetDestination(currentWaypoint.GetPosition());
+
+            if(inBranch != 0)
+            {
+                inBranch--;
+            }
         }
     }
 }
