@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     [CustomEditor(typeof(VoiceHandler))]
     public class VoiceHandlerEditor : Editor

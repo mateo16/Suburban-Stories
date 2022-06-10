@@ -1,49 +1,25 @@
-﻿using System.Linq;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
-using System.Collections.Generic;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     public class Postprocessor : AssetPostprocessor
     {
-        static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
-        {
-            foreach (string item in importedAssets)
-            {
-                if (item.Contains("RPM_EditorImage_"))
-                {
-                    AvatarLoaderEditorWindow.ShowWindow(false);
-                    UpdateAlwaysIncludedShaderList();
-                    AddRpmDefineSymbol();
-                    return;
-                }
-            }
-        }
+        #region Animation
+        private const string AnimationAssetPath = "Assets/Plugins/Wolf3D Ready Player Me SDK/Resources/Animations";
+        private const string AnimationTargetPath = "Assets/Plugins/Wolf3D Ready Player Me SDK/Resources/AnimationTargets";
 
-        #region Environment Settings
+        private const string MaleAnimationTargetName = "AnimationTargets/MaleAnimationTargetV2";
+        private const string FemaleAnimationTargetName = "AnimationTargets/FemaleAnimationTargetV2";
 
-        private const string RPM_SYMBOL = "READY_PLAYER_ME";
-        
-        private static void AddRpmDefineSymbol()
+        private static readonly string[] AnimationFiles = new string[]
         {
-            var target = EditorUserBuildSettings.selectedBuildTargetGroup;
-            var defineString = PlayerSettings.GetScriptingDefineSymbolsForGroup(target);
-            var symbols = new HashSet<string>(defineString.Split(';')) { RPM_SYMBOL };
-            var newDefineString = string.Join(";", symbols.ToArray());
-            PlayerSettings.SetScriptingDefineSymbolsForGroup(target, newDefineString);
-        }
-        #endregion
-        
-        #region Animation Settings
-        private const string AnimationAssetPath = "Assets/Plugins/Ready Player Me/Resources/Animations";
-
-        private void OnPreprocessModel()
-        {
-            ModelImporter modelImporter = assetImporter as ModelImporter;
-            UpdateAnimationFileSettings(modelImporter);
-        }
+            "Assets/Plugins/Wolf3D Ready Player Me SDK/Resources/Animations/Female/FemaleAnimationTargetV2@Breathing Idle.fbx",
+            "Assets/Plugins/Wolf3D Ready Player Me SDK/Resources/Animations/Female/FemaleAnimationTargetV2@Walking.fbx",
+            "Assets/Plugins/Wolf3D Ready Player Me SDK/Resources/Animations/Male/MaleAnimationTargetV2@Breathing Idle.fbx",
+            "Assets/Plugins/Wolf3D Ready Player Me SDK/Resources/Animations/Male/MaleAnimationTargetV2@Walking.fbx"
+        };
 
         private void UpdateAnimationFileSettings(ModelImporter modelImporter)
         {
@@ -55,6 +31,18 @@ namespace ReadyPlayerMe
             }
 
             if (assetPath.Contains(AnimationAssetPath))
+            {
+                SetModelImportData();
+
+                bool isFemaleFolder = assetPath.Contains("Female");
+                GameObject animationTarget = Resources.Load<GameObject>(isFemaleFolder ? FemaleAnimationTargetName : MaleAnimationTargetName);
+
+                if (animationTarget != null)
+                {
+                    modelImporter.sourceAvatar = animationTarget.GetComponent<Animator>().avatar;
+                }
+            }
+            else if (assetPath.Contains(AnimationTargetPath))
             {
                 SetModelImportData();
             }
@@ -120,9 +108,31 @@ namespace ReadyPlayerMe
                     serializedGraphicsObject.ApplyModifiedProperties();
                 }
             }
-
+            
             AssetDatabase.SaveAssets();
         }
         #endregion
+
+        private void OnPreprocessModel()
+        {
+            ModelImporter modelImporter = assetImporter as ModelImporter;
+            UpdateAnimationFileSettings(modelImporter);
+            
+            UpdateAlwaysIncludedShaderList();
+        }
+
+        static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
+        {
+            foreach (string item in importedAssets)
+            {
+                if (item.Contains(MaleAnimationTargetName))
+                {
+                    for (int i = 0; i < AnimationFiles.Length; i++)
+                    {
+                        AssetDatabase.ImportAsset(AnimationFiles[i]);
+                    }
+                }
+            }
+        }
     }
 }

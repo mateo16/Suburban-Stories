@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
-using static ReadyPlayerMe.ExtensionMethods;
+using static Wolf3D.ReadyPlayerMe.AvatarSDK.ExtensionMethods;
 
 #if UNITY_ANDROID
 using UnityEngine.Android;
 #endif
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     public enum AudioProviderType
     {
@@ -55,7 +55,7 @@ namespace ReadyPlayerMe
         private void Update()
         {
             float value = GetAmplitude();
-            SetBlendShapeWeights(value);
+            SetBlendshapeWeights(value);
         }
 
         public void InitializeAudio()
@@ -67,14 +67,13 @@ namespace ReadyPlayerMe
                     AudioSource = gameObject.AddComponent<AudioSource>();
                 }
 
-                switch (AudioProvider)
+                if (AudioProvider.Equals(AudioProviderType.Microphone))
                 {
-                    case AudioProviderType.Microphone:
-                        SetMicrophoneSource();
-                        break;
-                    case AudioProviderType.AudioClip:
-                        SetAudioClipSource();
-                        break;
+                    SetMicrophoneSource();
+                }
+                else if (AudioProvider.Equals(AudioProviderType.AudioClip))
+                {
+                    SetAudioClipSource();
                 }
             }
             catch (Exception e)
@@ -130,7 +129,7 @@ namespace ReadyPlayerMe
             return 0;
         }
 
-        #region Blend Shape Movement
+#region Blend Shape Movement
         private void GetMeshAndSetIndex(MeshType meshType, ref SkinnedMeshRenderer mesh, ref int index)
         {
             mesh = gameObject.GetMeshRenderer(meshType);
@@ -141,7 +140,7 @@ namespace ReadyPlayerMe
             }
         }
 
-        private void SetBlendShapeWeights(float weight)
+        private void SetBlendshapeWeights(float weight)
         {
             SetBlendShapeWeight(headMesh, mouthOpenBlendShapeIndexOnHeadMesh);
             SetBlendShapeWeight(beardMesh, mouthOpenBlendShapeIndexOnBeardMesh);
@@ -151,14 +150,14 @@ namespace ReadyPlayerMe
             {
                 if (index >= 0)
                 {
-                    mesh.SetBlendShapeWeight(index, weight);
+                    mesh.SetBlendShapeWeight(index, weight * 100f);
                 }
             }
         }
-        #endregion
+#endregion
 
-        #region Permissions
-        #if UNITY_IOS
+#region Permissions
+#if UNITY_IOS
         private IEnumerator CheckIOSMicrophonePermission()
         {
             yield return Application.RequestUserAuthorization(UserAuthorization.Microphone);
@@ -171,9 +170,9 @@ namespace ReadyPlayerMe
                 StartCoroutine(CheckIOSMicrophonePermission());
             }
         }
-        #endif
+#endif
 
-        #if UNITY_ANDROID
+#if UNITY_ANDROID
         private IEnumerator CheckAndroidMicrophonePermission()
         {
             WaitUntil wait = new WaitUntil(() => {
@@ -186,8 +185,8 @@ namespace ReadyPlayerMe
 
             InitializeAudio();
         }
-        #endif
-        #endregion
+#endif
+#endregion
 
         private void OnDestroy()
         {

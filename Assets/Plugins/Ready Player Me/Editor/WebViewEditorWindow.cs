@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using System.Linq;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
     public class WebViewEditorWindow : EditorWindowBase
     {
@@ -17,14 +17,14 @@ namespace ReadyPlayerMe
         private bool saveButtonDirty = true;
         private string SaveButtonText => saveButtonDirty ? "Save" : "Subdomain Saved!";
 
-        private static Vector2Int windowSize = new Vector2Int(512, 390);
+        private static Vector2Int windowSize = new Vector2Int(512, 430);
 
         private GUIStyle textFieldStyle = null;
         private GUIStyle textLabelStyle = null;
         private GUIStyle saveButtonStyle = null;
 
         [MenuItem("Ready Player Me/WebView Partner Editor")]
-        public static void ShowWindowMenu()
+        private static void ShowWindowMenu()
         {
             WebViewEditorWindow window = GetWindow(typeof(WebViewEditorWindow)) as WebViewEditorWindow;
             window.titleContent = new GUIContent("WebView Partner Editor");
@@ -51,7 +51,7 @@ namespace ReadyPlayerMe
             DrawContent(()=>
             {
                 DrawContent();
-            });
+            }, windowSize.y);
         }
 
         private void LoadStyles()
@@ -88,10 +88,10 @@ namespace ReadyPlayerMe
                 EditorGUILayout.Space();
 
                 Horizontal(() => { 
-                    EditorGUILayout.LabelField("https://", textLabelStyle, GUILayout.Width(65), GUILayout.Height(30));
+                    EditorGUILayout.LabelField("https://", textLabelStyle, GUILayout.Width(80), GUILayout.Height(30));
                     string oldValue = partnerSubdomain;
-                    partnerSubdomain = EditorGUILayout.TextField(oldValue, textFieldStyle, GUILayout.Width(300), GUILayout.Height(30));
-                    EditorGUILayout.LabelField(".readyplayer.me", textLabelStyle, GUILayout.Width(128), GUILayout.Height(30));
+                    partnerSubdomain = EditorGUILayout.TextField(oldValue, textFieldStyle, GUILayout.Width(252), GUILayout.Height(30));
+                    EditorGUILayout.LabelField(".readyplayer.me", textLabelStyle, GUILayout.Width(150), GUILayout.Height(30));
 
                     if(oldValue != partnerSubdomain)
                     {
@@ -109,17 +109,15 @@ namespace ReadyPlayerMe
                     Type type = partner.GetType();
                     var field = type.GetField("Subdomain");
                     field.SetValue(partner, partnerSubdomain);
-                    EditorUtility.SetDirty(partner);
-                    AssetDatabase.SaveAssets();
                 }
             }, true);
         }
 
         private bool ValidateSubdomain()
         {
-            if (partnerSubdomain.All(c => char.IsWhiteSpace(c)))
+            if (!partnerSubdomain.All(c => char.IsLetterOrDigit(c)))
             {
-                EditorUtility.DisplayDialog("Subdomain Format Error", $"Partner subdomain cannot contain white space. Value you entered is '{ partnerSubdomain }'.", "OK");
+                EditorUtility.DisplayDialog("Subdomain Format Error", $"Partner subdomain cannot contain white space and special characters. Only alpha-numeric characters are allowed. Value you enteres is '{ partnerSubdomain }'.", "ok");
                 return false;
             }
 

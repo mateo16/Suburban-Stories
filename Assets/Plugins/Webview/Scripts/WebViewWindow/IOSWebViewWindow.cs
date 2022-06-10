@@ -1,4 +1,3 @@
-#if UNITY_IOS
 using System;
 using UnityEngine;
 using System.Runtime.InteropServices;
@@ -182,4 +181,3 @@ public class IOSWebViewWindow : WebViewWindowBase
         webView = IntPtr.Zero;
     }
 }
-#endif

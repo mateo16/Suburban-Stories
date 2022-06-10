@@ -1,20 +1,38 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace ReadyPlayerMe
+namespace Wolf3D.ReadyPlayerMe.AvatarSDK
 {
+    public class AvatarLoaderEditorWindowStarter : AssetPostprocessor
+    {
+        static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
+        {
+            foreach (string item in importedAssets)
+            {
+                if (item.Contains("RPM_EditorImage_"))
+                {
+                    AvatarLoaderEditorWindow.ShowWindow(false);
+                    return;
+                }
+            }
+        }
+    }
+
     public class AvatarLoaderEditorWindow : EditorWindowBase
     {
-        private const string AnimsPath = "/Plugins/Ready Player Me/Resources/Animations";
+        private const string AnimsPath = "/Plugins/Wolf3D Ready Player Me SDK/Resources/Animations/Male";
+        private const string AnimTargetPath = "/Plugins/Wolf3D Ready Player Me SDK/Resources/AnimationTargets/MaleAnimationTarget.fbx";
 
         private const string UrlSaveKey = "UrlSaveKey";
         private const string VoiceToAnimSaveKey = "VoiceToAnimSaveKey";
         private const string EyeAnimationSaveKey = "EyeAnimationSaveKey";
         private const string ModelCachingSaveKey = "ModelCachingSaveKey";
 
+        private static EditorAvatarLoader loader = null;
+
         private string url = null;
         private bool useVoiceToAnim = false;
-        private bool useAvatarCaching = false;
+        private bool useModelCaching = false;
         private bool useEyeAnimations = false;
         private bool variablesLoaded = false;
 
@@ -22,7 +40,7 @@ namespace ReadyPlayerMe
         private readonly GUILayoutOption inputFieldWidth = GUILayout.Width(140);
         private GUIStyle folderButtonStyle = null;
         private GUIStyle avatarButtonStyle = null;
-        private static Vector2 windowSize = new Vector2Int(512, 532);
+        private static Vector2Int windowSize = new Vector2Int(512, 574);
 
         [MenuItem("Ready Player Me/Avatar Loader")]
         private static void ShowWindowMenu()
@@ -45,19 +63,25 @@ namespace ReadyPlayerMe
         private void OnGUI()
         {
             if (!variablesLoaded) LoadCachedVariables();
+            if (loader == null) loader = new EditorAvatarLoader();
 
             DrawContent(() =>
             {
-                LoadStyles();
-                EditorGUILayout.BeginVertical("Box");
-                DrawInputField();
-                DrawModelCaching();
-                DrawOptions();
-                DrawLoadAvatarButton();
-                EditorGUILayout.EndVertical();
+                DrawContent();
+            }, windowSize.y);
+        }
 
-                DrawAnimationButtons();
-            });
+        private void DrawContent()
+        {
+            LoadStyles(); 
+            EditorGUILayout.BeginVertical("Box");
+            DrawInputField();
+            DrawModelCaching();
+            DrawOptions();
+            DrawLoadAvatarButton();
+            EditorGUILayout.EndVertical();
+
+            DrawAnimationButtons();
         }
 
         private void LoadStyles()
@@ -66,6 +90,7 @@ namespace ReadyPlayerMe
             {
                 folderButtonStyle = new GUIStyle(GUI.skin.button);
                 folderButtonStyle.fontSize = 12;
+                folderButtonStyle.fixedWidth = 247f;
                 folderButtonStyle.padding = new RectOffset(5, 5, 5, 5);
             }
             
@@ -82,7 +107,7 @@ namespace ReadyPlayerMe
         private void LoadCachedVariables()
         {
             url = EditorPrefs.GetString(UrlSaveKey);
-            useAvatarCaching = EditorPrefs.GetBool(ModelCachingSaveKey);
+            useModelCaching = EditorPrefs.GetBool(ModelCachingSaveKey);
             useEyeAnimations = EditorPrefs.GetBool(EyeAnimationSaveKey);
             useVoiceToAnim = EditorPrefs.GetBool(VoiceToAnimSaveKey);
 
@@ -94,7 +119,7 @@ namespace ReadyPlayerMe
             GUI.skin.textField.fontSize = 12;
 
             EditorGUILayout.BeginHorizontal("Box");
-            EditorGUILayout.LabelField(new GUIContent("Avatar Url or Short Code", "Paste the avatar URL received from Ready Player Me here."), inputFieldWidth);
+            EditorGUILayout.LabelField(new GUIContent("URL or Short Code", "Paste the avatar URL received from Ready Player Me here."), inputFieldWidth);
             url = EditorGUILayout.TextField(url, fieldHeight);
             EditorPrefs.SetString(UrlSaveKey, url);
             EditorGUILayout.EndHorizontal();
@@ -105,9 +130,9 @@ namespace ReadyPlayerMe
             EditorGUILayout.BeginVertical("Box");
 
             EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField(new GUIContent("Use Avatar Caching", "Use the model already downloaded instead of downloading it again."), inputFieldWidth);
-            useAvatarCaching = EditorGUILayout.Toggle(useAvatarCaching, fieldHeight);
-            EditorPrefs.SetBool(ModelCachingSaveKey, useAvatarCaching);
+            EditorGUILayout.LabelField(new GUIContent("Use Model Caching", "Use the model already downloaded instead of downloading it again."), inputFieldWidth);
+            useModelCaching = EditorGUILayout.Toggle(useModelCaching, fieldHeight);
+            EditorPrefs.SetBool(ModelCachingSaveKey, useModelCaching);
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.HelpBox("Changes you make on Ready Player Me are reflected over the same URL. If caching is toggled on, avatar model with changes will not be downloaded.", MessageType.Info);
@@ -139,35 +164,31 @@ namespace ReadyPlayerMe
             GUI.enabled = !string.IsNullOrEmpty(url);
             if (GUILayout.Button("Load Avatar", avatarButtonStyle))
             {
-                var avatarLoader = new AvatarLoader();
-                avatarLoader.OnFailed += Failed;
-                avatarLoader.OnCompleted += Completed;
-                avatarLoader.UseAvatarCaching = useAvatarCaching;
-                avatarLoader.LoadAvatar(url);
+                loader.LoadAvatar(url, null, AvatarLoadCallback);
+                loader.UseModelCaching = useModelCaching;
             }
             GUI.enabled = true;
         }
 
-        private void Failed(object sender, FailureEventArgs args)
-        {
-            Debug.LogError($"{args.Type} - {args.Message}");
-        }
-
-        private void Completed(object sender, CompletionEventArgs args)
+        private void AvatarLoadCallback(GameObject avatar, AvatarMetaData metaData)
         {
             Debug.Log("Avatar loaded.");
 
-            if (useEyeAnimations) args.Avatar.AddComponent<EyeAnimationHandler>();
-            if (useVoiceToAnim) args.Avatar.AddComponent<VoiceHandler>();
+            if (useEyeAnimations) avatar.AddComponent<EyeAnimationHandler>();
+            if (useVoiceToAnim) avatar.AddComponent<VoiceHandler>();
 
-            Selection.activeObject = args.Avatar;
+            Selection.activeObject = avatar;
         }
 
         private void DrawAnimationButtons()
         {
             EditorGUILayout.BeginVertical("Box");
-            EditorGUILayout.HelpBox("To use Mixamo animations on full-body avatars, use 'FBX for Unity' and 'With Skin' settings. Add the file to 'Animations' folder. Finally select the animation in the FBX file, press CTRL+D and separate the animation from the FBX file.", MessageType.Info);
+            EditorGUILayout.HelpBox("To use Mixamo animations on full-body avatars, please upload MaleAnimationTarget.FBX and FemaleAnimation.FBX files to Mixamo, and move your animation files to Animations folder.", MessageType.Info);
             EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button("Reveal Animation Targets Folder", folderButtonStyle))
+            {
+                EditorUtility.RevealInFinder(Application.dataPath + AnimTargetPath);
+            }
             
             if (GUILayout.Button("Reveal Animations Folder", folderButtonStyle))
             {
@@ -175,6 +196,7 @@ namespace ReadyPlayerMe
             }
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.EndVertical();
+            GUILayout.Space(5);
         }
     }
 }
