@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
 using System.IO;
 using System.Xml;
 using UnityEditor;
@@ -76,7 +76,7 @@ internal class AndroidXmlDocument : XmlDocument {
         return SaveAs(manifestPath);
     }
 
-    public string SaveAs(string path) {
+    /*public string SaveAs(string path) {
         using (var writer = new XmlTextWriter(path, new UTF8Encoding(false))) {
             writer.Formatting = Formatting.Indented;
             Save(writer);
@@ -182,3 +182,4 @@ internal class AndroidManifest : AndroidXmlDocument
     }
 }
 #endif
+*/
