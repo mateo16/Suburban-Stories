@@ -1,89 +1,60 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using TMPro;
+
 namespace DapperDino.Items
 {
     public class HotbarSlot : ItemSlotUI, IDropHandler
     {
         [SerializeField] private Inventory inventory = null;
-        [SerializeField] private TextMeshProUGUI itemQuantityText = null;
-
-        private HotbarItem slotItem = null;
+        [SerializeField] private Hand hand = null;
+        [SerializeField] private TextMeshProUGUI itemQuantitytext = null;
 
         public override HotbarItem SlotItem
         {
-            get { return slotItem;  }
-            set { slotItem = value; UpdateSlotUI(); }
+            get { return ItemSlot.item; }
+            set { }
         }
-        public bool AddItem(HotbarItem itemToAdd)
-        {
-            if(SlotItem != null) { return false; }
-
-            SlotItem = itemToAdd;
-
-            return true;
-        }
-        public void UseSlot(int index)
-        {
-            if(index != SlotIndex) { return; }
-
-            //Use Item
-        }
+        
+        public ItemSlot ItemSlot => inventory.ItemContainer.GetSlotByIndex(20);
 
         public override void OnDrop(PointerEventData eventData)
         {
-            ItemDragHandler itemDragHandler = eventData.pointerDrag.GetComponent<ItemDragHandler>();
-            if(itemDragHandler == null) { return; }
 
-            InventorySlot inventorySlot = itemDragHandler.ItemSlotUI as InventorySlot;
-            if(inventorySlot != null)
+            ItemDragHandler itemDragHandler = eventData.pointerDrag.GetComponent<ItemDragHandler>();
+
+            if (itemDragHandler == null) { return; }
+
+            if ((itemDragHandler.ItemSlotUI as InventorySlot) != null)
             {
-                SlotItem = inventorySlot.ItemSlot.item;
-                return;
+                inventory.ItemContainer.Swap(itemDragHandler.ItemSlotUI.SlotIndex, 20);
             }
-            HotbarSlot hotbarSlot = itemDragHandler.ItemSlotUI as HotbarSlot;
-            if(hotbarSlot != null)
+
+            if ((itemDragHandler.ItemSlotUI as HotbarSlot) != null)
             {
-                HotbarItem oldItem = SlotItem;
-                SlotItem = hotbarSlot.SlotItem;
-                hotbarSlot.SlotItem = oldItem;
-                return;
+                inventory.ItemContainer.Swap(itemDragHandler.ItemSlotUI.SlotIndex , 20);
             }
         }
 
         public override void UpdateSlotUI()
         {
-            if(SlotItem == null)
+            if (ItemSlot.item == null)
             {
                 EnableSlotUI(false);
                 return;
             }
-            itemIconImage.sprite = SlotItem.Icon;
             EnableSlotUI(true);
-            SetItemQuantityUI();
+
+            itemIconImage.sprite = ItemSlot.item.Icon;
+            itemQuantitytext.text = ItemSlot.quantity > 1 ? ItemSlot.quantity.ToString() : "";
         }
-        private void SetItemQuantityUI()
-        {
-            if(SlotItem is InventoryItem inventoryItem)
-            {
-                if (inventory.ItemContainer.HasItem(inventoryItem))
-                {
-                    int quantityCount = inventory.ItemContainer.GetTotalQuantity(inventoryItem);
-                    itemQuantityText.text = quantityCount > 1 ? quantityCount.ToString() : "";
-                }
-                else{
-                    SlotItem = null;
-                }
-            }
-            else
-            {
-                itemQuantityText.enabled = false;
-            }
-        }
+
         protected override void EnableSlotUI(bool enable)
         {
             base.EnableSlotUI(enable);
-            itemQuantityText.enabled = enable;
+            itemQuantitytext.enabled = enable;
         }
     }
 }

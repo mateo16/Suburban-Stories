@@ -16,7 +16,53 @@ namespace DapperDino.Items
 
         public ItemSlot AddItem(ItemSlot itemSlot)
         {
-            for (int i = 0; i < itemSlots.Length; i++)
+            if (itemSlot.item.Holdable)
+            {
+                if (itemSlots[20].item != null)
+                {
+                    if (itemSlots[20].item == itemSlot.item)
+                    {
+                        int slotRemainingSpace = itemSlots[20].item.MaxStack - itemSlots[20].quantity;
+                        if (itemSlot.quantity <= slotRemainingSpace)
+                        {
+                            itemSlots[20].quantity += itemSlot.quantity;
+
+                            itemSlot.quantity = 0;
+
+                            OnItemsUpdated.Invoke();
+
+                            return itemSlot;
+                        }
+                        else if (slotRemainingSpace > 0)
+                        {
+                            itemSlots[20].quantity += slotRemainingSpace;
+                            itemSlot.quantity -= slotRemainingSpace;
+                        }
+                    }
+                }
+                else if (itemSlots[20].item == null)
+                {
+                    if (itemSlot.quantity <= itemSlot.item.MaxStack)
+                    {
+                        itemSlots[20] = itemSlot;
+
+                        itemSlot.quantity = 0;
+
+                        OnItemsUpdated.Invoke();
+
+                        return itemSlot;
+                    }
+                    else
+                    {
+                        itemSlots[20] = new ItemSlot(itemSlot.item, itemSlot.item.MaxStack);
+
+                        itemSlot.quantity -= itemSlot.item.MaxStack;
+                    }
+                }
+            }
+
+
+                for (int i = 0; i < itemSlots.Length; i++)
             {
                 if (itemSlots[i].item != null)
                 {

@@ -5,12 +5,12 @@ namespace DapperDino.Items
 {
     public class Hotbar : MonoBehaviour
     {
-        [SerializeField] private HotbarSlot[] hotbarSlots = new HotbarSlot[10];
+        [SerializeField] private HotbarSlot[] hotbarSlots = new HotbarSlot[1];
         public void Add(HotbarItem itemToAdd)
         {
             foreach (HotbarSlot hotbarSlot in hotbarSlots)
             {
-                if (hotbarSlot.AddItem(itemToAdd)) { return; }
+               // if (hotbarSlot.AddItem(itemToAdd)) { return; }
             }
     }
     }

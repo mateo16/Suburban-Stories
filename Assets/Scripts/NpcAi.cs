@@ -23,7 +23,6 @@ public class NpcAi : MonoBehaviour
         if(other.tag == "Player")
         {
             TriggerDialogue();
-            Debug.Log("triggeeeeeeer");
             Cursor.lockState = CursorLockMode.None;
         }
     }

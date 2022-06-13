@@ -9,6 +9,7 @@ namespace DapperDino.Items
     public class InventorySlot : ItemSlotUI, IDropHandler
     {
         [SerializeField] private Inventory inventory = null;
+        [SerializeField] private Hand hand = null;
         [SerializeField] private TextMeshProUGUI itemQuantitytext = null;
 
         public override HotbarItem SlotItem
@@ -21,11 +22,17 @@ namespace DapperDino.Items
         public override void OnDrop(PointerEventData eventData)
         {
             ItemDragHandler itemDragHandler = eventData.pointerDrag.GetComponent<ItemDragHandler>();
+
             if(itemDragHandler == null) { return;}
 
-            if((itemDragHandler.ItemSlotUI as InventorySlot) != null)
+            if ((itemDragHandler.ItemSlotUI as InventorySlot) != null)
             {
-                inventory.ItemContainer.Swap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex);
+                inventory.ItemContainer.Swap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex );
+            }
+
+            if ((itemDragHandler.ItemSlotUI as HotbarSlot) != null)
+            {
+                inventory.ItemContainer.Swap(20, SlotIndex );
             }
         }
 

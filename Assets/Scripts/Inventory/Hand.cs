@@ -4,13 +4,13 @@ using SuburbanStories.Events;
 
 namespace DapperDino.Items{
 
-    [CreateAssetMenu(fileName ="New Inventory",menuName ="Items/Inventory")]
-    public class Inventory : ScriptableObject
+    [CreateAssetMenu(fileName ="New Hand",menuName ="Items/Hand")]
+    public class Hand : ScriptableObject
     {
         [SerializeField] private VoidEvent onInventoryItemsUpdated = null;
         [SerializeField] private ItemSlot testItemSlot = new ItemSlot();
 
-        public ItemContainer ItemContainer { get; } = new ItemContainer(21);
+        public ItemContainer ItemContainer { get; } = new ItemContainer(1);
 
         public void OnEnable() => ItemContainer.OnItemsUpdated += onInventoryItemsUpdated.Raise;
 
