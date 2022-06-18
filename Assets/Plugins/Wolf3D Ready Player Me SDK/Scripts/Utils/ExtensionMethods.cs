@@ -72,11 +72,11 @@ namespace Wolf3D.ReadyPlayerMe.AvatarSDK
                 {
                     if (meshType == MeshType.HeadMesh)
                     {
-                        throw new Exception($"ExtensionMethods.GetMeshRenderer: {meshType} not found on {gameObject.name}. Make sure this method is called on a avatar game object.");
+                        //throw new Exception($"ExtensionMethods.GetMeshRenderer: {meshType} not found on {gameObject.name}. Make sure this method is called on a avatar game object.");
                     }
                     else if(allChildren.Count > 1)
                     {
-                        Debug.Log($"ExtensionMethods.GetMeshRenderer: {meshType} not found on {gameObject.name}.");
+                        //Debug.Log($"ExtensionMethods.GetMeshRenderer: {meshType} not found on {gameObject.name}.");
                     }
                 }
             }
