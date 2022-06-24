@@ -20,10 +20,17 @@ public class GunSystem : MonoBehaviour
     public LayerMask whatIsEnemy;
 
     public GameObject muzzleFlash;
+    public GameObject muzzleFlashSchool;
+
     public GameObject bulletHoleGraphic;
+    public GameObject bulletHoleGraphicSchool;
 
     public GameObject enemyImpact;
+
     public AudioClip reloadClip;
+
+    public GameObject enemyImpactSchool;
+
 
     //public TextMeshProUGUI text;
 
@@ -68,16 +75,41 @@ public class GunSystem : MonoBehaviour
             if (rayHit.collider.CompareTag("Enemy"))
             {
                 rayHit.collider.GetComponent<EnemyDamage>().TakeDamage(damage);
-                Instantiate(enemyImpact, rayHit.point, Quaternion.LookRotation(rayHit.normal));
+                if (PauseMenu.schoolMode)
+                {
+                    Instantiate(enemyImpactSchool, rayHit.point, Quaternion.LookRotation(rayHit.normal));
+                }
+                else
+                {
+                    Instantiate(enemyImpact, rayHit.point, Quaternion.LookRotation(rayHit.normal));
+                }
+                
             }
             else
             {
-                Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.LookRotation(rayHit.normal));
+                if (PauseMenu.schoolMode)
+                {
+                    Instantiate(bulletHoleGraphicSchool, rayHit.point, Quaternion.LookRotation(rayHit.normal));
+                }
+                else
+                {
+                    Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.LookRotation(rayHit.normal));
+                }
+
+                
             }
 
         }
 
-        Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+        if (PauseMenu.schoolMode)
+        {
+            Instantiate(muzzleFlashSchool, attackPoint.position, Quaternion.identity);
+        }
+        else {
+            Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+        }
+
+        
 
         bulletsLeft--;
         bulletsShot--;

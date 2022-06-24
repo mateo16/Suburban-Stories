@@ -8,9 +8,9 @@ public class SpriteReplacer : MonoBehaviour
     public GameObject schoolModeSprite;
 
 
-    void Update()
+    public void ChangeSprite()
     {
-        if (PauseMenu.schoolMode)
+        if (!PauseMenu.schoolMode)
         {
             originalSprite.SetActive(false);
             schoolModeSprite.SetActive(true);

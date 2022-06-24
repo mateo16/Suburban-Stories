@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using SuburbanStories.Events;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,9 +11,11 @@ public class PauseMenu : MonoBehaviour
 
     private PlayerData playerData;
     public static bool schoolMode;
+    [SerializeField] private VoidEvent OnSchoolModeChange;
 
     private void Start()
     {
+        schoolMode = false;
         playerData = new PlayerData();
     }
     void Update()
@@ -63,6 +66,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void SchoolMode()
     {
+        OnSchoolModeChange.Raise();
         if (schoolMode)
         {
             schoolMode = false;

@@ -14,7 +14,7 @@ namespace Wolf3D.ReadyPlayerMe.AvatarSDK
         {
             if(webView == null)
             {
-                webView = FindObjectOfType<WebView>();
+               // webView = FindObjectOfType<WebView>();
             }
             else if (webView.Loaded)
             {

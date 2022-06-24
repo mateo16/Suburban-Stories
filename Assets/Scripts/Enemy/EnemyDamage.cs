@@ -6,10 +6,14 @@ public class EnemyDamage : MonoBehaviour
 {
 
     public int health = 10;
+    public int exp = 2;
     private ThiefAiScript thiefScript;
+    private Experience expScript;
+
     private void Awake()
     {
         thiefScript = GetComponent<ThiefAiScript>();
+        expScript = GameObject.FindWithTag("UI").GetComponent<Experience>();
     }
 
     public void TakeDamage(int damage)
@@ -22,6 +26,8 @@ public class EnemyDamage : MonoBehaviour
             {
                 thiefScript.returnMoney();
             }
+
+            expScript.UpdateExp(exp);
             Destroy(gameObject);
             FindObjectOfType<AudioManager>().Play("Death");
         }
