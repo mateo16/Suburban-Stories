@@ -48,6 +48,7 @@ public class HealthBar : MonoBehaviour
             transform.position = new Vector3(0, 3, -3);
             healthBar.value = maxHealth;
             currentHealth = maxHealth;
+            FindObjectOfType<AudioManager>().Play("Death");
         }  
     }
 

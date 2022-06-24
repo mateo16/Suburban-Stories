@@ -18,6 +18,7 @@ public class MeleeSystem : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && CanAttack)
         {
             SwordAttack();
+            FindObjectOfType<AudioManager>().Play("Gunshot");
         }
     }
     public void SwordAttack()

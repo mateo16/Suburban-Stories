@@ -22,12 +22,8 @@ public class EnemyDamage : MonoBehaviour
             {
                 thiefScript.returnMoney();
             }
-
-
-                Destroy(gameObject);
-
-               
-                  
+            Destroy(gameObject);
+            FindObjectOfType<AudioManager>().Play("Death");
         }
 
     }

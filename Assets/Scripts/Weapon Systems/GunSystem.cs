@@ -23,6 +23,7 @@ public class GunSystem : MonoBehaviour
     public GameObject bulletHoleGraphic;
 
     public GameObject enemyImpact;
+    public AudioClip reloadClip;
 
     //public TextMeshProUGUI text;
 
@@ -97,6 +98,7 @@ public class GunSystem : MonoBehaviour
     private void Reload()
     {
         reloading = true;
+        
         Invoke("ReloadFinished", reloadTime);
     }
     private void ReloadFinished()
