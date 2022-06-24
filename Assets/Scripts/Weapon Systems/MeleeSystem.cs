@@ -41,7 +41,12 @@ public class MeleeSystem : MonoBehaviour
         if(other.tag == "Enemy" && isAttacking)
         {
             other.GetComponent<EnemyDamage>().TakeDamage(damage);
-            Instantiate(enemyImpact, bloodPoint.position, bloodPoint.rotation);
+            if(PauseMenu.schoolMode){
+
+            }else{
+                Instantiate(enemyImpact, bloodPoint.position, bloodPoint.rotation);
+            }
+            
             isAttacking = false;
         }
     }
