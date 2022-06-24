@@ -5,7 +5,7 @@ using TMPro;
 public class Money : MonoBehaviour
 {
     public int startMoney = 0;
-    private int currentMoney;
+    public int currentMoney;
     public TextMeshProUGUI moneyText;
 
     private void Start()
@@ -16,7 +16,14 @@ public class Money : MonoBehaviour
 
     public void updateMoney(int moneyToChange)
     {
-        currentMoney += moneyToChange;
+        if(currentMoney + moneyToChange < 0)
+        {
+            currentMoney = 0;
+        }
+        else
+        {
+            currentMoney += moneyToChange;
+        }
         moneyText.text = currentMoney.ToString();
     }
 }

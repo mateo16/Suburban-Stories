@@ -6,22 +6,30 @@ public class EnemyDamage : MonoBehaviour
 {
 
     public int health = 10;
-    void Start()
+    private ThiefAiScript thiefScript;
+    private void Awake()
     {
-        
-    }
-
-    void Update()
-    {
-        if (health < 1)
-        {
-            Destroy(gameObject);
-        }
+        thiefScript = GetComponent<ThiefAiScript>();
     }
 
     public void TakeDamage(int damage)
     {
         health = health - damage;
+
+        if(health < 1)
+        {
+            if (thiefScript != null)
+            {
+                thiefScript.returnMoney();
+            }
+
+
+                Destroy(gameObject);
+
+               
+                  
+        }
+
     }
 
 
