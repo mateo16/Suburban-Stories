@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject PauseMenuUI;
 
     private PlayerData playerData;
+    public static bool schoolMode;
 
     private void Start()
     {
@@ -59,6 +60,17 @@ public class PauseMenu : MonoBehaviour
     public void Settings()
     {
 
+    }
+    public void SchoolMode()
+    {
+        if (schoolMode)
+        {
+            schoolMode = false;
+        }
+        else
+        {
+            schoolMode = true;
+        }
     }
     public void Menu()
     {
