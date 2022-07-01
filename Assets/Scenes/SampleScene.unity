@@ -19259,15 +19259,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  timeBetweenShooting: 0.2
+  timeBetweenShooting: 0.115
   spread: 0.002
   range: 50
   reloadTime: 5
-  timeBetweenShots: 0.0005
+  timeBetweenShots: 0.0002
   magazineSize: 25
   bulletsPerTap: 1
   allowButtonHold: 1
-  bulletsLeft: 25
+  bulletsLeft: 30
   bulletsShot: 0
   Scriptammo: {fileID: 469812477}
   fpsCam: {fileID: 963194227}
@@ -19275,7 +19275,7 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 5623
-  muzzleFlash: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
+  muzzleFlash: {fileID: 1000010254994808, guid: 4df157acdb02c0e439d8ec2f7822490a, type: 3}
   muzzleFlashSchool: {fileID: 1277954026192068, guid: 8c0568c457f38824d8649f26f2363927, type: 3}
   bulletHoleGraphic: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
   bulletHoleGraphicSchool: {fileID: 1277954026192068, guid: 8c0568c457f38824d8649f26f2363927, type: 3}
