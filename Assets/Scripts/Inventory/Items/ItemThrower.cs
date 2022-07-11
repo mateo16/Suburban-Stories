@@ -16,7 +16,7 @@ namespace DapperDino.Items
         {
             this.slotIndex = slotIndex;
 
-            inventory.ItemContainer.RemoveAt(slotIndex);
+            inventory.RemoveAt(slotIndex);
 
             //Instantiate item
         }

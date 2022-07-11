@@ -18,7 +18,7 @@ namespace DapperDino.Interactables
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                currentInteractable.Interact();
+                currentInteractable.Interact(transform.root.gameObject);
             }
         }
 
