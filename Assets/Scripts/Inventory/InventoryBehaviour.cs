@@ -5,13 +5,14 @@ namespace DapperDino.Items.Inventories
     public class InventoryBehaviour : MonoBehaviour , IItemContainer
     {
         [SerializeField] private Inventory inventory = null;
+        [SerializeField] private HandShow handShow = null;
 
         private void Start()
         {
             inventory.SetSize(21);
         }
 
-        public ItemSlot AddItem(ItemSlot itemSlot) => inventory.AddItem(itemSlot);
+        public ItemSlot AddItem(ItemSlot itemSlot) => inventory.AddItemHoldable(itemSlot,handShow);
 
         public int GetTotalQuantity(InventoryItem item) => inventory.GetTotalQuantity(item);
 

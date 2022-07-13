@@ -4,17 +4,11 @@ using SuburbanStories.Events;
 
 namespace DapperDino.Items{
 
-    //aaaa
 
     [CreateAssetMenu(fileName ="New Inventory",menuName ="Items/Inventory")]
     public class Inventory : ScriptableObject , IItemContainer
     {
         [SerializeField] private VoidEvent onInventoryItemsUpdated = null;
-
-        internal ItemSlot AddItem(object itemSlot)
-        {
-            throw new NotImplementedException();
-        }
 
         private ItemSlot[] itemSlots = new ItemSlot[0];
 
@@ -25,7 +19,7 @@ namespace DapperDino.Items{
 
         public ItemSlot GetSlotByIndex(int index) => itemSlots[index];
 
-        public ItemSlot AddItem(ItemSlot itemSlot)
+        public ItemSlot AddItemHoldable(ItemSlot itemSlot,HandShow hand)
         {
             if (itemSlot.item.Holdable)
             {
@@ -61,6 +55,10 @@ namespace DapperDino.Items{
 
                         onInventoryItemsUpdated.Raise();
 
+                        Debug.Log(itemSlot.item.name);
+
+                        hand.ChangePrefab(itemSlot.item.name);
+
                         return itemSlot;
                     }
                     else
@@ -68,10 +66,17 @@ namespace DapperDino.Items{
                         itemSlots[20] = new ItemSlot(itemSlot.item, itemSlot.item.MaxStack);
 
                         itemSlot.quantity -= itemSlot.item.MaxStack;
+
+                        hand.ChangePrefab(itemSlot.item.name);
                     }
                 }
             }
+            ItemSlot slotItem = AddItem(itemSlot);
+            return slotItem;
+        }
 
+        public ItemSlot AddItem(ItemSlot itemSlot)
+        {
 
             for (int i = 0; i < itemSlots.Length; i++)
             {

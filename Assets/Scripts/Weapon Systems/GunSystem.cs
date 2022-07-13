@@ -38,6 +38,10 @@ public class GunSystem : MonoBehaviour
     {
         bulletsLeft = magazineSize;
         readyToShoot = true;
+
+        fpsCam = (Camera)FindObjectOfType(typeof(Camera));
+        Scriptammo = GameObject.Find("Hud").GetComponent<Ammo>();
+
     }
 
     private void Update()

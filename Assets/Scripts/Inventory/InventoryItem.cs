@@ -7,6 +7,7 @@ namespace DapperDino.Items{
     [SerializeField][Min(0)]private int sellPrice = 1;
     [SerializeField][Min(1)]private int maxStack = 1;
     [SerializeField] private bool  holdable = false;
+    
 
 
         public override string ColouredName{

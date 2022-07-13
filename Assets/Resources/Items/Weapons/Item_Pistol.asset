@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61807c6fa930c904f9877bd070381ab1, type: 3}
-  m_Name: Item_Consumable_Hamburger
+  m_Script: {fileID: 11500000, guid: 56f8b2a07e8d04b7a9be44f3f9cc1368, type: 3}
+  m_Name: Item_Pistol
   m_EditorClassIdentifier: 
-  name: Hamburger
-  icon: {fileID: 21300000, guid: 078ddd5cfa636463b8e41994bf12a50b, type: 3}
-  sellPrice: 10
-  maxStack: 3
-  holdable: 0
-  useText: Esta Buena
+  name: Pistol
+  icon: {fileID: 21300000, guid: 2708d30b59e8b40cbad7aa5874635241, type: 3}
+  sellPrice: 100
+  maxStack: 1
+  holdable: 1
+  maxAmmo: 8
