@@ -55,8 +55,6 @@ namespace DapperDino.Items{
 
                         onInventoryItemsUpdated.Raise();
 
-                        Debug.Log(itemSlot.item.name);
-
                         hand.ChangePrefab(itemSlot.item.name);
 
                         return itemSlot;

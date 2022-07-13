@@ -18,7 +18,11 @@ namespace DapperDino.Interactables
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                currentInteractable.Interact(transform.root.gameObject);
+                bool notDestroyed = currentInteractable.Interact(transform.root.gameObject);
+                if (!notDestroyed)
+                {
+                    currentInteractable = null;
+                }
             }
         }
 
