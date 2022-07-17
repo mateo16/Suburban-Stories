@@ -28,8 +28,8 @@ public class EnemyDamage : MonoBehaviour
             }
 
             expScript.UpdateExp(exp);
-            Destroy(gameObject);
             FindObjectOfType<AudioManager>().Play("Death");
+            Destroy(gameObject);
         }
 
     }

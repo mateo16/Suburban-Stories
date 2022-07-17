@@ -96,13 +96,13 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 5623
-  muzzleFlash: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
-  muzzleFlashSchool: {fileID: 1277954026192068, guid: 8c0568c457f38824d8649f26f2363927, type: 3}
+  muzzleFlash: {fileID: 1000010254994808, guid: a74879e14c666654f8ae145925970673, type: 3}
+  muzzleFlashSchool: {fileID: 1277954026192068, guid: 7d0e747d51d99cf40adfbe3e303c6f32, type: 3}
   bulletHoleGraphic: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
-  bulletHoleGraphicSchool: {fileID: 1277954026192068, guid: 8c0568c457f38824d8649f26f2363927, type: 3}
+  bulletHoleGraphicSchool: {fileID: 1277954026192068, guid: 7d0e747d51d99cf40adfbe3e303c6f32, type: 3}
   enemyImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
-  reloadClip: {fileID: 0}
-  enemyImpactSchool: {fileID: 1277954026192068, guid: 8c0568c457f38824d8649f26f2363927, type: 3}
+  reloadClip: {fileID: 8300000, guid: 217992243d3f4bf42963a878e23840cc, type: 3}
+  enemyImpactSchool: {fileID: 1277954026192068, guid: 7d0e747d51d99cf40adfbe3e303c6f32, type: 3}
 --- !u!114 &27477334892176950
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8539,6 +8539,21 @@ MonoBehaviour:
     volume: 0
     pitch: 0
     source: {fileID: 0}
+  - name: Knife Swing
+    clip: {fileID: 8300000, guid: 12a55f1bf65fa514f9b8b1921c1cc3f0, type: 3}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Knife Swing 2
+    clip: {fileID: 8300000, guid: d526644df5b042c4d9fdc256f7069b9e, type: 3}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Machinegun Shot
+    clip: {fileID: 8300000, guid: 6f44d9b73e10894448e987c1115b1241, type: 3}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
 --- !u!4 &461151731
 Transform:
   m_ObjectHideFlags: 0
@@ -18828,12 +18843,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 5623
   muzzleFlash: {fileID: 1000010254994808, guid: 4df157acdb02c0e439d8ec2f7822490a, type: 3}
-  muzzleFlashSchool: {fileID: 1277954026192068, guid: 8c0568c457f38824d8649f26f2363927, type: 3}
+  muzzleFlashSchool: {fileID: 1277954026192068, guid: 7d0e747d51d99cf40adfbe3e303c6f32, type: 3}
   bulletHoleGraphic: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
-  bulletHoleGraphicSchool: {fileID: 1277954026192068, guid: 8c0568c457f38824d8649f26f2363927, type: 3}
+  bulletHoleGraphicSchool: {fileID: 1277954026192068, guid: 7d0e747d51d99cf40adfbe3e303c6f32, type: 3}
   enemyImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
-  reloadClip: {fileID: 0}
-  enemyImpactSchool: {fileID: 1277954026192068, guid: 8c0568c457f38824d8649f26f2363927, type: 3}
+  reloadClip: {fileID: 8300000, guid: 217992243d3f4bf42963a878e23840cc, type: 3}
+  enemyImpactSchool: {fileID: 1277954026192068, guid: 7d0e747d51d99cf40adfbe3e303c6f32, type: 3}
 --- !u!1 &1044789475
 GameObject:
   m_ObjectHideFlags: 0
