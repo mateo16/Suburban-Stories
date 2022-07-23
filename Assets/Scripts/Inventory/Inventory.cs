@@ -195,6 +195,62 @@ namespace DapperDino.Items{
             }
         }
 
+        public void HoldableSwap(int indexOne, int indexTwo, HandShow hand)
+        {
+            ItemSlot firstSlot = itemSlots[indexOne];
+            ItemSlot secondSlot = itemSlots[indexTwo];
+
+            if (firstSlot == secondSlot) { return; }
+
+            if (secondSlot.item != null)
+            {
+                if (firstSlot.item == secondSlot.item)
+                {
+                    int secondSlotRemainingSpace = secondSlot.item.MaxStack - secondSlot.quantity;
+
+                    if (firstSlot.quantity <= secondSlotRemainingSpace)
+                    {
+                        itemSlots[indexTwo].quantity += firstSlot.quantity;
+
+                        itemSlots[indexOne] = new ItemSlot();
+
+                        onInventoryItemsUpdated.Raise();
+
+                        return;
+                    }
+                }
+            }
+
+            itemSlots[indexOne] = secondSlot;
+            itemSlots[indexTwo] = firstSlot;
+
+            if(indexOne == 20)
+            {
+                if(secondSlot.item != null)
+                {
+                    hand.ChangePrefab(secondSlot.item.name);
+                }
+                else
+                {
+                    hand.ChangePrefab("");
+                }
+                
+            }
+            else if(indexTwo == 20)
+            {
+                if (firstSlot.item != null)
+                {
+                    hand.ChangePrefab(firstSlot.item.name);
+                }
+                else
+                {
+                    hand.ChangePrefab("");
+                }
+            }
+
+            onInventoryItemsUpdated.Raise();
+        }
+
         public void Swap(int indexOne, int indexTwo)
         {
             ItemSlot firstSlot = itemSlots[indexOne];
@@ -223,6 +279,7 @@ namespace DapperDino.Items{
 
             itemSlots[indexOne] = secondSlot;
             itemSlots[indexTwo] = firstSlot;
+
             onInventoryItemsUpdated.Raise();
         }
     }

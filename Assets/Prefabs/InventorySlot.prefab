@@ -92,8 +92,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIconImage: {fileID: 1386180793264833125}
   inventory: {fileID: 11400000, guid: a8c9c8916f1be4ec985a0004a5163223, type: 2}
-  hand: {fileID: 11400000, guid: 78eb4afdc9df249dcafb237869e3c98a, type: 2}
   itemQuantitytext: {fileID: 1386180792565740089}
+  handShow: {fileID: 0}
 --- !u!114 &1386180791976948046
 MonoBehaviour:
   m_ObjectHideFlags: 0

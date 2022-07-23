@@ -22,7 +22,7 @@ namespace DapperDino.Items.Inventories
 
         public void RemoveItem(ItemSlot itemSlot) => inventory.RemoveItem(itemSlot);
 
-        public void Swap(int indexOne, int indexTwo) => inventory.Swap(indexOne, indexTwo);
+        public void Swap(int indexOne, int indexTwo) => inventory.HoldableSwap(indexOne, indexTwo, handShow);
     }
 }
 

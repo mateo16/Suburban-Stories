@@ -11,7 +11,13 @@ public class HandShow : MonoBehaviour
 
     public void ChangePrefab(string name)
     {
-        if(currentPrefab != null)
+        if (name.Trim() == "")
+        {
+            Destroy(currentPrefab);
+            return;
+        }
+
+        if (currentPrefab != null)
         {
             Destroy(currentPrefab);
         }
@@ -33,5 +39,6 @@ public class HandShow : MonoBehaviour
             currentPrefab.transform.localRotation = Quaternion.Euler(Vector3.zero);
             currentPrefab.transform.localScale = Vector3.one;
         }
+
     }
 }
