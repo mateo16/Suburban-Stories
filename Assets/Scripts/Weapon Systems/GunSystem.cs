@@ -42,6 +42,9 @@ public class GunSystem : MonoBehaviour
         fpsCam = (Camera)FindObjectOfType(typeof(Camera));
         Scriptammo = GameObject.Find("Hud").GetComponent<Ammo>();
 
+        Scriptammo.StartAmmo(magazineSize, bulletsLeft);
+        Ammo.showAmmo = true;
+
     }
 
     private void Update()

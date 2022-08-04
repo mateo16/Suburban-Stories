@@ -7,6 +7,7 @@ public class Ammo : MonoBehaviour
     int MagazineSize;
     public Text AmmoText;
     bool HeldGun = false;
+    public static bool showAmmo = false;
 
     void Start()
     {
@@ -15,16 +16,12 @@ public class Ammo : MonoBehaviour
     public void StartAmmo(int AmmoAmount , int bulletsLeft){
         MagazineSize = AmmoAmount;
         AmmoLeft = bulletsLeft;
+        AmmoText.text = AmmoLeft + "/" + MagazineSize;
         HeldGun = true;
     }
     void Update()
     {
-        if (HeldGun)
-        {
-            AmmoText.text = AmmoLeft + "/" + MagazineSize;
-        }
-
-        if(PickUpController.slotFull && PickUpController.isGunHold){
+        if(showAmmo){
             AmmoText.enabled = true;
         }else{
             AmmoText.enabled = false;
@@ -34,9 +31,11 @@ public class Ammo : MonoBehaviour
     public void ReduceAmmo()
     {
         AmmoLeft--;
+        AmmoText.text = AmmoLeft + "/" + MagazineSize;
     }
     public void RestartAmmo(int AmmoAmount)
     {
         AmmoLeft = AmmoAmount;
+        AmmoText.text = AmmoLeft + "/" + MagazineSize;
     }
 }

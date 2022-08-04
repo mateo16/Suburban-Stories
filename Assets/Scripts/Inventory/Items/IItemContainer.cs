@@ -1,9 +1,15 @@
 
+using System.Collections.Generic;
+
 namespace DapperDino.Items{
 
     public interface IItemContainer
 {
+     ItemSlot GetSlotByIndex(int index);
+
     ItemSlot AddItem(ItemSlot ItemSlot);
+
+    List<Item> GetAllItems();
 
     void RemoveItem(ItemSlot ItemSlot);
     void RemoveAt(int slotIndex);

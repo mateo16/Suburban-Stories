@@ -1,25 +1,26 @@
 using UnityEngine;
 using System;
 using SuburbanStories.Events;
+using System.Collections.Generic;
+using UnityEngine.Events;
 
 namespace DapperDino.Items{
 
 
-    [CreateAssetMenu(fileName ="New Inventory",menuName ="Items/Inventory")]
-    public class Inventory : ScriptableObject , IItemContainer
+
+    public class Inventory : MonoBehaviour , IItemContainer
     {
-        [SerializeField] private VoidEvent onInventoryItemsUpdated = null;
 
-        private ItemSlot[] itemSlots = new ItemSlot[0];
+        [SerializeField] private HandShow hand = null;
+        [SerializeField] private UnityEvent onInventoryItemsUpdated = null;
 
-        public void SetSize(int size)
-        {
-            itemSlots = new ItemSlot[size];
-        }
+        [SerializeField] private ItemSlot[] itemSlots = new ItemSlot[0];
+
+
 
         public ItemSlot GetSlotByIndex(int index) => itemSlots[index];
 
-        public ItemSlot AddItemHoldable(ItemSlot itemSlot,HandShow hand)
+        public ItemSlot AddItemHoldable(ItemSlot itemSlot)
         {
             if (itemSlot.item.Holdable)
             {
@@ -34,7 +35,7 @@ namespace DapperDino.Items{
 
                             itemSlot.quantity = 0;
 
-                            onInventoryItemsUpdated.Raise();
+                            onInventoryItemsUpdated.Invoke();
 
                             return itemSlot;
                         }
@@ -53,7 +54,7 @@ namespace DapperDino.Items{
 
                         itemSlot.quantity = 0;
 
-                        onInventoryItemsUpdated.Raise();
+                        onInventoryItemsUpdated.Invoke();
 
                         hand.ChangePrefab(itemSlot.item.name);
 
@@ -89,7 +90,7 @@ namespace DapperDino.Items{
 
                             itemSlot.quantity = 0;
 
-                            onInventoryItemsUpdated.Raise();
+                            onInventoryItemsUpdated.Invoke();
 
                             return itemSlot;
                         }
@@ -112,7 +113,7 @@ namespace DapperDino.Items{
 
                         itemSlot.quantity = 0;
 
-                        onInventoryItemsUpdated.Raise();
+                        onInventoryItemsUpdated.Invoke();
 
                         return itemSlot;
                     }
@@ -124,7 +125,7 @@ namespace DapperDino.Items{
                     }
                 }
             }
-            onInventoryItemsUpdated.Raise();
+            onInventoryItemsUpdated.Invoke();
 
             return itemSlot;
         }
@@ -160,7 +161,21 @@ namespace DapperDino.Items{
             if (slotIndex < 0 || slotIndex > itemSlots.Length - 1) { return; }
             itemSlots[slotIndex] = new ItemSlot();
 
-            onInventoryItemsUpdated.Raise();
+            onInventoryItemsUpdated.Invoke();
+        }
+
+        public List<Item> GetAllItems()
+        {
+            List<Item> items = new List<Item>();
+
+            for (int i = 0; i < itemSlots.Length; i++)
+            {
+                if(itemSlots[i].item != null)
+                {
+                    items.Add(itemSlots[i].item);
+                }
+            }
+            return items;
         }
 
         public void RemoveItem(ItemSlot itemSlot)
@@ -185,7 +200,7 @@ namespace DapperDino.Items{
                             {
                                 itemSlots[i] = new ItemSlot();
 
-                                onInventoryItemsUpdated.Raise();
+                                onInventoryItemsUpdated.Invoke();
 
                                 return;
                             }
@@ -195,12 +210,12 @@ namespace DapperDino.Items{
             }
         }
 
-        public void HoldableSwap(int indexOne, int indexTwo, HandShow hand)
+        public void HoldableSwap(int indexOne, int indexTwo)
         {
             ItemSlot firstSlot = itemSlots[indexOne];
             ItemSlot secondSlot = itemSlots[indexTwo];
 
-            if (firstSlot == secondSlot) { return; }
+            if (firstSlot.Equals(secondSlot)) { return; }
 
             if (secondSlot.item != null)
             {
@@ -214,7 +229,7 @@ namespace DapperDino.Items{
 
                         itemSlots[indexOne] = new ItemSlot();
 
-                        onInventoryItemsUpdated.Raise();
+                        onInventoryItemsUpdated.Invoke();
 
                         return;
                     }
@@ -224,11 +239,18 @@ namespace DapperDino.Items{
             itemSlots[indexOne] = secondSlot;
             itemSlots[indexTwo] = firstSlot;
 
-            if(indexOne == 20)
+            if(indexOne == 20 )
             {
-                if(secondSlot.item != null)
+                if(secondSlot.item != null )
                 {
-                    hand.ChangePrefab(secondSlot.item.name);
+                    if (secondSlot.item.Holdable)
+                    {
+                        hand.ChangePrefab(secondSlot.item.name);
+                    }
+                    else
+                    {
+                        hand.ChangePrefab("");
+                    }
                 }
                 else
                 {
@@ -240,7 +262,12 @@ namespace DapperDino.Items{
             {
                 if (firstSlot.item != null)
                 {
-                    hand.ChangePrefab(firstSlot.item.name);
+                    if (firstSlot.item.Holdable) {
+                        hand.ChangePrefab(firstSlot.item.name);
+                    }else
+                    {
+                        hand.ChangePrefab("");
+                    }
                 }
                 else
                 {
@@ -248,7 +275,7 @@ namespace DapperDino.Items{
                 }
             }
 
-            onInventoryItemsUpdated.Raise();
+            onInventoryItemsUpdated.Invoke();
         }
 
         public void Swap(int indexOne, int indexTwo)
@@ -256,7 +283,7 @@ namespace DapperDino.Items{
             ItemSlot firstSlot = itemSlots[indexOne];
             ItemSlot secondSlot = itemSlots[indexTwo];
 
-            if (firstSlot == secondSlot) { return; }
+            if (firstSlot.Equals(secondSlot)) { return; }
 
             if (secondSlot.item != null)
             {
@@ -270,7 +297,7 @@ namespace DapperDino.Items{
 
                         itemSlots[indexOne] = new ItemSlot();
 
-                        onInventoryItemsUpdated.Raise();
+                        onInventoryItemsUpdated.Invoke();
 
                         return;
                     }
@@ -280,7 +307,7 @@ namespace DapperDino.Items{
             itemSlots[indexOne] = secondSlot;
             itemSlots[indexTwo] = firstSlot;
 
-            onInventoryItemsUpdated.Raise();
+            onInventoryItemsUpdated.Invoke();
         }
     }
 }

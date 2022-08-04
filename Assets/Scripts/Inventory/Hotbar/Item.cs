@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace DapperDino.Items{
-    public abstract class HotbarItem : ScriptableObject
+    public abstract class Item : ScriptableObject
 {
     [Header("Basic Info")]
     [SerializeField] private new string name = "New Hotbar Item Name";

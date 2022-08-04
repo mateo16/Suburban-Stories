@@ -10,9 +10,8 @@ namespace DapperDino.Items
     {
         [SerializeField] private Inventory inventory = null;
         [SerializeField] private TextMeshProUGUI itemQuantitytext = null;
-        [SerializeField] private HandShow handShow = null;
 
-        public override HotbarItem SlotItem
+        public override Item SlotItem
         {
             get { return ItemSlot.item; }
             set { }
@@ -27,7 +26,7 @@ namespace DapperDino.Items
 
             if ((itemDragHandler.ItemSlotUI as InventorySlot) != null)
             {
-                inventory.HoldableSwap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex ,handShow);
+                inventory.HoldableSwap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex);
             }
         }
 

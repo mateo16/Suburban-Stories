@@ -4,6 +4,6 @@ using DapperDino.Items;
 
 namespace SuburbanStories.Events
 {
-    [Serializable] public class UnityHotbarItemEvent : UnityEvent<HotbarItem> { }
+    [Serializable] public class UnityHotbarItemEvent : UnityEvent<Item> { }
 }
 

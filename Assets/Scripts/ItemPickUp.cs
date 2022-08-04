@@ -10,11 +10,11 @@ namespace DapperDino.Items
 
         public bool Interact(GameObject other)
         {
-            var itemContainer = other.GetComponent<IItemContainer>();
+            var itemContainer = other.GetComponent<Inventory>();
 
             if (itemContainer == null) { return true; }
 
-            if(itemContainer.AddItem(itemSlot).quantity == 0)
+            if(itemContainer.AddItemHoldable(itemSlot).quantity == 0)
             {
                 Destroy(gameObject);
                 return false;

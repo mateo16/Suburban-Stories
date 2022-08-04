@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace DapperDino.Items{
-    public abstract class InventoryItem : HotbarItem
+    public abstract class InventoryItem : Item
 {
     [Header("Item Data")]
     [SerializeField][Min(0)]private int sellPrice = 1;

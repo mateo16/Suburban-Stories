@@ -13,12 +13,14 @@ public class HandShow : MonoBehaviour
     {
         if (name.Trim() == "")
         {
+            Ammo.showAmmo = false;
             Destroy(currentPrefab);
             return;
         }
 
         if (currentPrefab != null)
         {
+            Ammo.showAmmo = false;
             Destroy(currentPrefab);
         }
         
