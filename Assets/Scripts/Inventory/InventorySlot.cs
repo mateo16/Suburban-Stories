@@ -10,6 +10,7 @@ namespace DapperDino.Items
     {
         [SerializeField] private Inventory inventory = null;
         [SerializeField] private TextMeshProUGUI itemQuantitytext = null;
+        public GameObject BlankImage;
 
         public override Item SlotItem
         {
@@ -35,8 +36,10 @@ namespace DapperDino.Items
             if(ItemSlot.item == null)
             {
                 EnableSlotUI(false);
+                BlankImage.SetActive(false);
                 return;
             }
+            BlankImage.SetActive(true);
             EnableSlotUI(true);
 
             itemIconImage.sprite = ItemSlot.item.Icon;
