@@ -7,6 +7,16 @@ namespace DapperDino.Utilities
         [SerializeField] private KeyCode keyCode = KeyCode.None;
         [SerializeField] private GameObject objecToToggle = null;
 
+        private void Start()
+        {
+            Invoke("SetActivation", 0.01f);
+        }
+
+        private void SetActivation()
+        {
+            objecToToggle.SetActive(false);
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(keyCode))

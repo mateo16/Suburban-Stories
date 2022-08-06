@@ -9,12 +9,14 @@ public class MainMenu : MonoBehaviour
     public InputField createWorldName;
     public InputField loadWorldName;
     public static string currentWorldName;
+    public GameObject loadingScreen;
+    public Slider slider;
 
     public void PlayGame()
     {
         if(createWorldName.text.Trim() != "") {
             currentWorldName = createWorldName.text.Trim();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            StartCoroutine(LoadScene());
         }
         else
         {
@@ -28,11 +30,24 @@ public class MainMenu : MonoBehaviour
         {
             currentWorldName = loadWorldName.text.Trim();
             FindObjectOfType<FireBase>().GetToDatabase(currentWorldName);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            StartCoroutine(LoadScene());
         }
         else
         {
             Debug.Log("No se puede poner un nombre vacio");
+        }
+    }
+
+    IEnumerator LoadScene()
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+            slider.value = progress;
+            yield return null;
         }
     }
 

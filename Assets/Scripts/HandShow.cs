@@ -1,13 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DapperDino.Items;
 
 public class HandShow : MonoBehaviour
 {
     [SerializeField] private GameObject[] holdablePrefabs;
     [SerializeField] private Transform gunContainer;
+    [SerializeField] private ItemThrower itemThrower;
+    [SerializeField] private InventorySlot handSlot;
+
     private GameObject selectedPrefab = null;
     private GameObject currentPrefab = null;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && handSlot.ItemSlot.item != null)
+        {
+            itemThrower.Activate(handSlot.ItemSlot,20);
+        }
+    }
 
     public void ChangePrefab(string name)
     {
