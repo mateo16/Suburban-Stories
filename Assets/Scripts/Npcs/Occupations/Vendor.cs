@@ -14,6 +14,7 @@ namespace DapperDino.Npcs.Occupations
 
         public void Trigger()
         {
+            Cursor.lockState = CursorLockMode.None;
             string itemNames = "";
             List<Item> items = itemContainer.GetAllItems();
             for (int i = 0; i < items.Count; i++)
