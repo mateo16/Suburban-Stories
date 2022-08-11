@@ -1,5 +1,3 @@
-
-
 using DapperDino.Npcs;
 
 namespace SuburbanStories.Events

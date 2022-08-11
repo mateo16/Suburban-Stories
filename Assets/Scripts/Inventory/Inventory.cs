@@ -164,9 +164,9 @@ namespace DapperDino.Items{
             onInventoryItemsUpdated.Invoke();
         }
 
-        public List<Item> GetAllItems()
+        public List<InventoryItem> GetAllItems()
         {
-            List<Item> items = new List<Item>();
+            List<InventoryItem> items = new List<InventoryItem>();
 
             for (int i = 0; i < itemSlots.Length; i++)
             {

@@ -8,15 +8,17 @@ namespace DapperDino.Npcs.Occupations
         [SerializeField] private TextMeshProUGUI occupationNameText = null;
 
         private IOccupation occupation = null;
+        private GameObject other = null;
 
-        public void Initialise(IOccupation occupation)
+        public void Initialise(IOccupation occupation,GameObject other)
         {
             this.occupation = occupation;
+            this.other = other;
         }
 
         public void TriggerOccupation()
         {
-            occupation.Trigger();
+            occupation.Trigger(other);
         }
     }
 }

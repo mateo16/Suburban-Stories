@@ -12,14 +12,19 @@ namespace DapperDino.Npcs
         [SerializeField] private string greetingText = "Hola";
         private IOccupation[] occupations = new IOccupation[0];
 
+        private GameObject otherInteractor = null;
+
         public string Name => name;
         public string GreetingText => greetingText;
+        public GameObject OtherInteractor => otherInteractor;
         public IOccupation[] Occupations => occupations;
 
         private void Start() => occupations = GetComponents<IOccupation>();
 
         public bool Interact(GameObject other)
         {
+            otherInteractor = other;
+            Cursor.lockState = CursorLockMode.None;
             onStartInteraction.Raise(this);
 
             return true;
