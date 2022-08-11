@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     private Queue<string> sentences;
     public GameObject dialogueBox;
+    public MouseLook scriptlook;
     void Start()
     {
         sentences = new Queue<string>();
@@ -50,6 +51,8 @@ public class DialogueManager : MonoBehaviour
         }
         public void EndDialogue()
         {
+            scriptlook.enabled = true;
+            //scriptlook.mouseSensitivity=200f;
             animator.SetBool("IsOpen", false);
             dialogueBox.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;

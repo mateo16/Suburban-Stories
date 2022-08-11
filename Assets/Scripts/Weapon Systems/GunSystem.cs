@@ -30,6 +30,7 @@ public class GunSystem : MonoBehaviour
     public AudioClip reloadClip;
 
     public GameObject enemyImpactSchool;
+    public GameObject Mira;
 
 
     //public TextMeshProUGUI text;

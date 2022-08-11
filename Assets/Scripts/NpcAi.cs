@@ -17,7 +17,7 @@ public class NpcAi : MonoBehaviour
             TriggerDialogue();
             Debug.Log("colisssiooooon");
         }
-    }*/
+    }
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
@@ -29,5 +29,5 @@ public class NpcAi : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-    }
+    }*/
 }

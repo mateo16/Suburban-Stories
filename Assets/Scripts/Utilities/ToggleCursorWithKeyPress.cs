@@ -6,7 +6,7 @@ namespace DapperDino.Utilities
     {
         [SerializeField] private KeyCode keyCode = KeyCode.None;
         private bool locked = true;
-
+        public MouseLook scriptlook;
         private void Update()
         {
             if (Input.GetKeyDown(keyCode))
@@ -15,11 +15,13 @@ namespace DapperDino.Utilities
                 {
                     Cursor.lockState = CursorLockMode.None;
                     locked = false;
+                    scriptlook.enabled = true;
                 }
                 else
                 {
                     Cursor.lockState = CursorLockMode.Locked;
                     locked = true;
+                    scriptlook.enabled = false;
                 }
                 
             }

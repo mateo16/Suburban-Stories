@@ -19164,7 +19164,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 2b2ed0abff2f4495eb162530ccf767ab, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 8a13b72595d8b0242bc98fa3ff2da290, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &901352472
 Transform:
@@ -36740,6 +36740,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1066391565}
   animator: {fileID: 1254089673}
   dialogueBox: {fileID: 1254089671}
+  scriptlook: {fileID: 963194229}
 --- !u!4 &1708891705
 Transform:
   m_ObjectHideFlags: 0
@@ -43048,6 +43049,7 @@ GameObject:
   - component: {fileID: 1971452105}
   - component: {fileID: 1971452104}
   - component: {fileID: 1971452103}
+  - component: {fileID: 1971452110}
   m_Layer: 7
   m_Name: Bill
   m_TagString: Enemy
@@ -43175,6 +43177,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   exp: 100
+--- !u!114 &1971452110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971452102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952ecc49ecb185d48aeb56f29222d74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Bill
+    sentences:
+    - Muy buenas tardes caballero, es del placer de mi persona informarle que usted
+      posee la capacidad de acelerar utilizando la tecla SHIFT en su teclado
+    - "Adem\xE1s, me gustar\xEDa expandir su conocimiento ense\xF1\xE1ndole a usted
+      que puede agarrar y arrojar objetos utilizando las teclas E y Q, respectivamente"
+    - "Por ultimo, mi querido compa\xF1ero, a quien he llegado a conocer tan profundamente
+      a medida que se desenlazo nuestra conversaci\xF3n, me gustar\xEDa decirle que
+      tiene un inventario al que puede acceder con la tecla i"
+  scriptlook: {fileID: 963194229}
 --- !u!4 &1971452112
 Transform:
   m_ObjectHideFlags: 0

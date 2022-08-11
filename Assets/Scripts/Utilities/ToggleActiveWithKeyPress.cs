@@ -22,6 +22,7 @@ namespace DapperDino.Utilities
             if (Input.GetKeyDown(keyCode))
             {
                 objecToToggle.SetActive(!objecToToggle.activeSelf);
+                
             }
         }
     }
