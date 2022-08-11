@@ -38,6 +38,7 @@ namespace DapperDino.Items
             
             float random = Random.Range(-1f,1f);
             rb.AddTorque(new Vector3(random,random,random)*10);
+            Ammo.showCrossHair = false;
             }
             this.slotIndex = slotIndex;
 

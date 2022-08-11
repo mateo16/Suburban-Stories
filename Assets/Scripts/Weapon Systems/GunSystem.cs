@@ -30,7 +30,6 @@ public class GunSystem : MonoBehaviour
     public AudioClip reloadClip;
 
     public GameObject enemyImpactSchool;
-    public GameObject Mira;
 
 
     //public TextMeshProUGUI text;
@@ -45,6 +44,7 @@ public class GunSystem : MonoBehaviour
 
         Scriptammo.StartAmmo(magazineSize, bulletsLeft);
         Ammo.showAmmo = true;
+        Ammo.showCrossHair = true;
 
     }
 
