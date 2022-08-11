@@ -15,13 +15,13 @@ namespace DapperDino.Utilities
                 {
                     Cursor.lockState = CursorLockMode.None;
                     locked = false;
-                    scriptlook.enabled = true;
+                    scriptlook.enabled = false;
                 }
                 else
                 {
                     Cursor.lockState = CursorLockMode.Locked;
                     locked = true;
-                    scriptlook.enabled = false;
+                    scriptlook.enabled = true;
                 }
                 
             }

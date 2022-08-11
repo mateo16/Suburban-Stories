@@ -9,6 +9,7 @@ namespace DapperDino.Utilities
 
         private void Start()
         {
+            objecToToggle.SetActive(true);
             Invoke("SetActivation", 0.01f);
         }
 
