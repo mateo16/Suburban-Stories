@@ -22,29 +22,8 @@ namespace DapperDino.Npcs.Occupations.Vendors
         private VendorData scenarioData = null;
         public void StartScenario(VendorData scenarioData) {
             this.scenarioData = scenarioData;
-            BuyTabButton();
+            SetCurrentItemContainer(true);
             
-        }
-        public void BuyTabButton()
-        {
-            ClearItemButtons();
-            var items = scenarioData.SellingItemContainer.GetAllUniqueItems();
-            for (int i = 0; i < items.Count; i++)
-            {
-                GameObject buttonInstance = Instantiate(buttonPrefab, buttonHolderTransform);
-                buttonInstance.GetComponent<VendorItemButton>().Initialise(this,items[i], scenarioData.SellingItemContainer.GetTotalQuantity(items[i]));
-            }
-            SetItem(scenarioData.SellingItemContainer.GetSlotByIndex(0).item);
-        }
-        public void SellTabButton() {
-            ClearItemButtons();
-            var items = scenarioData.BuyingItemContainer.GetAllUniqueItems();
-            for (int i = 0; i < items.Count; i++)
-            {
-                GameObject buttonInstance = Instantiate(buttonPrefab, buttonHolderTransform);
-                buttonInstance.GetComponent<VendorItemButton>().Initialise(this,items[i], scenarioData.BuyingItemContainer.GetTotalQuantity(items[i]));
-            }
-            SetItem(scenarioData.BuyingItemContainer.GetSlotByIndex(0).item);
         }
         public void SetItem(InventoryItem item)
         {
@@ -59,7 +38,10 @@ namespace DapperDino.Npcs.Occupations.Vendors
             itemDescriptionText.text = item.Description;
             itemDataText.text = item.GetInfoDisplayText();
 
-
+            int totalQuantity = scenarioData.SellingItemContainer.GetTotalQuantity(item);
+            quatityText.text = $"0/{totalQuantity}";
+            quantitySlider.maxValue = totalQuantity;
+            quantitySlider.value = 0;
         }
         private void ClearItemButtons()
         {
@@ -68,7 +50,18 @@ namespace DapperDino.Npcs.Occupations.Vendors
                 Destroy(child.gameObject);
             }
         }
-
+        public void SetCurrentItemContainer(bool isFirst)
+        {
+            ClearItemButtons();
+            scenarioData.IsFirstContainerBuying = isFirst;
+            var items = scenarioData.SellingItemContainer.GetAllUniqueItems();
+            for (int i = 0; i < items.Count; i++)
+            {
+                GameObject buttonInstance = Instantiate(buttonPrefab, buttonHolderTransform);
+                buttonInstance.GetComponent<VendorItemButton>().Initialise(this, items[i], scenarioData.SellingItemContainer.GetTotalQuantity(items[i]));
+            }
+            SetItem(scenarioData.SellingItemContainer.GetSlotByIndex(0).item);
+        }
 }
 }
 

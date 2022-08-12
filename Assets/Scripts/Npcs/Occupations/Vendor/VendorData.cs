@@ -12,10 +12,10 @@ namespace DapperDino.Npcs.Occupations.Vendors
             itemContainers[1] = sellingItemContainer;
         }
         private IItemContainer[] itemContainers = new IItemContainer[2];
-        private bool isFirstContainerBuying = true;
+        public bool IsFirstContainerBuying { get; set; } = true;
 
-        public IItemContainer BuyingItemContainer => isFirstContainerBuying ? itemContainers[0] : itemContainers[1];
-        public IItemContainer SellingItemContainer => isFirstContainerBuying ? itemContainers[1] : itemContainers[0];
+        public IItemContainer BuyingItemContainer => IsFirstContainerBuying ? itemContainers[0] : itemContainers[1];
+        public IItemContainer SellingItemContainer => IsFirstContainerBuying ? itemContainers[1] : itemContainers[0];
     }
 
 }
