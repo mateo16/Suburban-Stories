@@ -18,6 +18,7 @@ public class EnemyAiScriptMelee : MonoBehaviour
 
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+    private bool soundActivated = false;
 
     private void Awake()
     {
@@ -31,7 +32,13 @@ public class EnemyAiScriptMelee : MonoBehaviour
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange) AttackPlayer();
+        if (playerInSightRange && !playerInAttackRange && !soundActivated) Sound();
+        if (playerInSightRange && playerInAttackRange) AttackPlayer(); 
+    }
+
+    private void Sound(){
+        soundActivated = true;
+        FindObjectOfType<AudioManager>().Play("Pincho");
     }
     private void Patroling()
     {
@@ -67,6 +74,7 @@ public class EnemyAiScriptMelee : MonoBehaviour
         {
             MeleeSystemEnemyScript.SwordAttack();
         }
+        soundActivated = false;
     }
     private void ResetAttack()
     {

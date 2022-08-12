@@ -19,6 +19,8 @@ public class EnemyAiScript : MonoBehaviour
 
     public GameObject projectile;
     public Transform firePoint;
+
+    private bool soundActivated = false;
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -31,7 +33,12 @@ public class EnemyAiScript : MonoBehaviour
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+        if (playerInSightRange && !playerInAttackRange && !soundActivated) Sound();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
+    }
+    private void Sound(){
+        soundActivated = true;
+        FindObjectOfType<AudioManager>().Play("Cagaste");
     }
     private void Patroling()
     {
@@ -57,6 +64,7 @@ public class EnemyAiScript : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        
     }
     private void AttackPlayer()
     {
@@ -72,6 +80,7 @@ public class EnemyAiScript : MonoBehaviour
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timebetweenAttacks);
+            soundActivated = false;
         }
     }
     private void ResetAttack()
