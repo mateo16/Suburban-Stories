@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Knife
   description: facha
   icon: {fileID: 21300000, guid: e490a725463d14b4dad9c0e9d7eff755, type: 3}
-  sellPrice: 1
+  sellPrice: 20
   maxStack: 1
   holdable: 1

@@ -25,4 +25,8 @@ public class Money : MonoBehaviour
         }
         moneyText.text = playerInventory.Money.ToString();
     }
+    public void UpdateDisplay()
+    {
+        moneyText.text = playerInventory.Money.ToString();
+    }
 }

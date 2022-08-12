@@ -9,6 +9,7 @@ namespace DapperDino.Npcs.Occupations.Vendors
     {
         [SerializeField] private GameObject buttonPrefab = null;
         [SerializeField] private Transform buttonHolderTransform = null;
+        [SerializeField] private Money moneyScript = null;
 
         [Header("Data Display")]
         [SerializeField] private TextMeshProUGUI itemNameText = null;
@@ -20,6 +21,7 @@ namespace DapperDino.Npcs.Occupations.Vendors
         [SerializeField] private Slider quantitySlider = null;
 
         private VendorData scenarioData = null;
+        private InventoryItem currentItem;
         public void StartScenario(VendorData scenarioData) {
             this.scenarioData = scenarioData;
             SetCurrentItemContainer(true);
@@ -27,6 +29,7 @@ namespace DapperDino.Npcs.Occupations.Vendors
         }
         public void SetItem(InventoryItem item)
         {
+            currentItem = item;
             if(item == null)
             {
                 itemNameText.text = string.Empty;
@@ -42,6 +45,26 @@ namespace DapperDino.Npcs.Occupations.Vendors
             quatityText.text = $"0/{totalQuantity}";
             quantitySlider.maxValue = totalQuantity;
             quantitySlider.value = 0;
+        }
+        public void UpdateSliderText(float quantity)
+        {
+            int totalQuantity = scenarioData.SellingItemContainer.GetTotalQuantity(currentItem);
+            quatityText.text = $"{quantity}/{totalQuantity}";
+        }
+        public void ConfirmButton()
+        {
+            int price = currentItem.SellPrice * (int)quantitySlider.value;
+
+
+                scenarioData.BuyingItemContainer.Money -= price;
+                scenarioData.SellingItemContainer.Money += price;
+
+                var itemSlotSwap = new ItemSlot(currentItem, (int)quantitySlider.value);
+                scenarioData.BuyingItemContainer.AddItem(itemSlotSwap);
+                scenarioData.SellingItemContainer.RemoveItem(itemSlotSwap);
+
+            moneyScript.UpdateDisplay();
+
         }
         private void ClearItemButtons()
         {
