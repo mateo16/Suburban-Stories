@@ -52,6 +52,7 @@ namespace DapperDino.TooltipUI
 
         public void DisplayInfo(Item infoItem)
         {
+            Debug.Log(infoItem);
             StringBuilder builder = new StringBuilder();
 
             builder.Append("<size=35>").Append(infoItem.ColouredName).Append("</size>").AppendLine();
