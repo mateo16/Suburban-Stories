@@ -12,6 +12,8 @@ namespace DapperDino.Items
         [SerializeField] protected HotbarItemEvent onMouseStartHoverItem = null;
         [SerializeField] protected VoidEvent onMouseEndHoverItem = null;
 
+        public Inventory inventory;
+
         private CanvasGroup canvasGroup = null;
         private Transform originalParent = null;
         private bool isHovering = false;

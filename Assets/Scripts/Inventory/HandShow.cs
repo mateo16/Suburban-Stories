@@ -10,6 +10,8 @@ public class HandShow : MonoBehaviour
     [SerializeField] private ItemThrower itemThrower;
     [SerializeField] private InventorySlot handSlot;
 
+    [SerializeField] private Inventory inventory;
+
     private GameObject selectedPrefab = null;
     private GameObject currentPrefab = null;
 
@@ -17,7 +19,7 @@ public class HandShow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) && handSlot.ItemSlot.item != null)
         {
-            itemThrower.Activate(handSlot.ItemSlot,20);
+            itemThrower.Activate(handSlot.ItemSlot,20,inventory);
         }
     }
 

@@ -14,7 +14,7 @@ namespace DapperDino.Items{
         public HandShow hand = null;
         [SerializeField] private UnityEvent onInventoryItemsUpdated = null;
 
-        [SerializeField] private ItemSlot[] itemSlots = new ItemSlot[0];
+        public ItemSlot[] itemSlots = new ItemSlot[0];
 
         public int Money { get { return money; } set { money = value; } }
 
@@ -209,9 +209,15 @@ namespace DapperDino.Items{
             }
         }
 
-        public void HoldableSwap(int indexOne, int indexTwo)
+        public void HoldableSwap(int indexOne, int indexTwo, Inventory otherInventory)
         {
-            ItemSlot firstSlot = itemSlots[indexOne];
+            ItemSlot firstItemSlot; 
+            if(otherInventory != null){
+                firstItemSlot = otherInventory.itemSlots[indexOne];
+            }else{
+                firstItemSlot = itemSlots[indexOne];
+            }
+            ItemSlot firstSlot = firstItemSlot;
             ItemSlot secondSlot = itemSlots[indexTwo];
 
             if (firstSlot.Equals(secondSlot)) { return; }
@@ -226,7 +232,7 @@ namespace DapperDino.Items{
                     {
                         itemSlots[indexTwo].quantity += firstSlot.quantity;
 
-                        itemSlots[indexOne] = new ItemSlot();
+                        otherInventory.itemSlots[indexOne] = new ItemSlot();
 
                         onInventoryItemsUpdated.Invoke();
 
@@ -235,7 +241,7 @@ namespace DapperDino.Items{
                 }
             }
 
-            itemSlots[indexOne] = secondSlot;
+            otherInventory.itemSlots[indexOne] = secondSlot;
             itemSlots[indexTwo] = firstSlot;
 
             if(indexOne == 20 )
@@ -277,9 +283,15 @@ namespace DapperDino.Items{
             onInventoryItemsUpdated.Invoke();
         }
 
-        public void Swap(int indexOne, int indexTwo)
+        public void Swap(int indexOne, int indexTwo, Inventory otherInventory)
         {
-            ItemSlot firstSlot = itemSlots[indexOne];
+            ItemSlot firstItemSlot; 
+            if(otherInventory != null){
+                firstItemSlot = otherInventory.itemSlots[indexOne];
+            }else{
+                firstItemSlot = itemSlots[indexOne];
+            }
+            ItemSlot firstSlot = firstItemSlot; 
             ItemSlot secondSlot = itemSlots[indexTwo];
 
             if (firstSlot.Equals(secondSlot)) { return; }
@@ -294,7 +306,7 @@ namespace DapperDino.Items{
                     {
                         itemSlots[indexTwo].quantity += firstSlot.quantity;
 
-                        itemSlots[indexOne] = new ItemSlot();
+                        otherInventory.itemSlots[indexOne] = new ItemSlot();
 
                         onInventoryItemsUpdated.Invoke();
 
@@ -303,7 +315,7 @@ namespace DapperDino.Items{
                 }
             }
 
-            itemSlots[indexOne] = secondSlot;
+            otherInventory.itemSlots[indexOne] = secondSlot;
             itemSlots[indexTwo] = firstSlot;
 
             onInventoryItemsUpdated.Invoke();

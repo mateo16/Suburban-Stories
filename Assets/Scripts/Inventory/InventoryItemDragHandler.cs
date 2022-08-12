@@ -16,7 +16,7 @@ namespace DapperDino.Items
                 if(eventData.hovered.Count == 0)
                 {
                     InventorySlot thisSlot = ItemSlotUI as InventorySlot;
-                    itemThrower.Activate(thisSlot.ItemSlot, thisSlot.SlotIndex);
+                    itemThrower.Activate(thisSlot.ItemSlot, thisSlot.SlotIndex,thisSlot.inventory);
                 }
             }
             

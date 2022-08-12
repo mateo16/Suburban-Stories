@@ -16,7 +16,7 @@ namespace DapperDino.Items{
     void RemoveItem(ItemSlot ItemSlot);
     void RemoveAt(int slotIndex);
 
-    void Swap(int indexOne, int indexTwo);
+    void Swap(int indexOne, int indexTwo, Inventory otherInventory);
     
     bool HasItem(InventoryItem item);
 

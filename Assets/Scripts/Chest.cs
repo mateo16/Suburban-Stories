@@ -5,13 +5,15 @@ namespace DapperDino.Items
 {
     public class Chest : MonoBehaviour, IInteractable
     {
-
-        [SerializeField] private Inventory inventory;
-        [SerializeField] private GameObject ChestCanvas;
+        [SerializeField] private GameObject chestCanvas;
+        [SerializeField] private GameObject inventoryCanvas;
+        [SerializeField] private GameObject inventoryCanvas2;
 
         public bool Interact(GameObject other)
         {
-            ChestCanvas.SetActive(true);
+            chestCanvas.SetActive(true);
+            inventoryCanvas.SetActive(true);
+            inventoryCanvas2.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             return true;
         }

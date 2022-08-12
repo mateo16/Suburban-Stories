@@ -9,7 +9,7 @@ namespace DapperDino.Items
     public class InventorySlot : ItemSlotUI, IDropHandler
     {
 
-        [SerializeField] private Inventory inventory = null;
+        public Inventory inventory = null;
         [SerializeField] private TextMeshProUGUI itemQuantitytext = null;
         public GameObject BlankImage;
 
@@ -28,15 +28,8 @@ namespace DapperDino.Items
 
             if ((itemDragHandler.ItemSlotUI as InventorySlot) != null)
             {
-                if(inventory.hand == null)
-                {
-                    inventory.Swap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex);
-                }
-                else
-                {
-                    inventory.HoldableSwap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex);
-                }
-                
+                    inventory.HoldableSwap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex, itemDragHandler.inventory);
+ 
             }
         }
 

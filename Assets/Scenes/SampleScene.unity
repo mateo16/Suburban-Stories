@@ -630,6 +630,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1439074721}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &8583815
 MonoBehaviour:
@@ -1238,7 +1239,7 @@ RectTransform:
   - {fileID: 469812476}
   - {fileID: 1254089672}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1563,6 +1564,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 644908356}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 164682374}
   itemThrower: {fileID: 521867464}
 --- !u!114 &42440194
 MonoBehaviour:
@@ -3259,6 +3261,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1385086207}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 164682374}
   itemThrower: {fileID: 521867464}
 --- !u!114 &87241083
 MonoBehaviour:
@@ -4798,7 +4801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 0
-  hand: {fileID: 0}
+  hand: {fileID: 1769825957}
   onInventoryItemsUpdated:
     m_PersistentCalls:
       m_Calls:
@@ -4851,8 +4854,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e29b1186e1c4979b84578193671f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 164682374}
-  ChestCanvas: {fileID: 1343633715}
+  chestCanvas: {fileID: 1343633715}
+  inventoryCanvas: {fileID: 2008612187}
+  inventoryCanvas2: {fileID: 1487809833}
 --- !u!65 &164682376
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4923,7 +4927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164682373}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.609, y: 3.157, z: 11.74}
+  m_LocalPosition: {x: 2.01, y: 3.157, z: 14.042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5616,16 +5620,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191049163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9.104641}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1343633716}
-  m_Father: {fileID: 1227413111}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 337.19397, y: 218.4}
+  m_AnchoredPosition: {x: 333.5, y: 221}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &192694575
@@ -6784,7 +6788,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220140049
 GameObject:
@@ -7938,7 +7942,7 @@ Transform:
   m_Children:
   - {fileID: 31834406}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &280472370
 MonoBehaviour:
@@ -8525,6 +8529,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 426649062}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 164682374}
   itemThrower: {fileID: 521867464}
 --- !u!114 &303622920
 MonoBehaviour:
@@ -9086,7 +9091,7 @@ Transform:
   m_Children:
   - {fileID: 883657866}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &333315525
 MonoBehaviour:
@@ -9587,6 +9592,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 208434177}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 164682374}
   itemThrower: {fileID: 521867464}
 --- !u!114 &342929357
 MonoBehaviour:
@@ -10689,6 +10695,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1141790535}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 164682374}
   itemThrower: {fileID: 521867464}
 --- !u!114 &365943580
 MonoBehaviour:
@@ -12436,6 +12443,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 272441916}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 164682374}
   itemThrower: {fileID: 521867464}
 --- !u!114 &444740439
 MonoBehaviour:
@@ -12895,7 +12903,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &461225901
 PrefabInstance:
@@ -14231,7 +14239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670b70550968e402b9495c9fcf1720ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 1769825956}
   pickUpPrefabs:
   - {fileID: 5327394578607756685, guid: a230df90defd65a4ca5e6fc716747187, type: 3}
   - {fileID: 5258121096081305195, guid: 10399e7e91e8c4f4aac13e9564db8720, type: 3}
@@ -20367,6 +20374,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1420311903}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 164682374}
   itemThrower: {fileID: 521867464}
 --- !u!114 &766514335
 MonoBehaviour:
@@ -23563,7 +23571,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &903239172
 GameObject:
@@ -31214,6 +31222,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 423206584}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 164682374}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1166675446
 MonoBehaviour:
@@ -32434,9 +32443,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.6939788, y: 2.6000001, z: 9.104641}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 191049164}
-  - {fileID: 1367304014}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -35048,7 +35055,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670b70550968e402b9495c9fcf1720ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 164682374}
   pickUpPrefabs:
   - {fileID: 5833920987005334132, guid: 7b7d2ee64b3c95048b4ecbfa427a1086, type: 3}
   - {fileID: 5327394578607756685, guid: a230df90defd65a4ca5e6fc716747187, type: 3}
@@ -35659,8 +35665,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1299955999}
-  m_Father: {fileID: 1227413111}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -38754,6 +38760,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 2053715085}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 164682374}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1495902139
 MonoBehaviour:
@@ -39498,7 +39505,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1516493359
 PrefabInstance:
@@ -42521,7 +42528,7 @@ Transform:
   - {fileID: 2008612188}
   - {fileID: 1487809837}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1627320606
 MonoBehaviour:
@@ -42605,6 +42612,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 987738362}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 164682374}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1629664141
 MonoBehaviour:
@@ -44295,6 +44303,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1990760144}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 164682374}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1704885878
 MonoBehaviour:
@@ -44608,7 +44617,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1710195921
 GameObject:
@@ -45194,11 +45203,19 @@ PrefabInstance:
       objectReference: {fileID: 1769937309}
     - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -45209,23 +45226,63 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1627320607}
     - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2008612187}
+    - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1487809833}
+    - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: ToggleCursorDeactivate
       objectReference: {fileID: 0}
     - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: DapperDino.Utilities.ToggleCursor, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260374212974857410, guid: b818b409827294b419c80d963e22838d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6524659137935027063, guid: b818b409827294b419c80d963e22838d, type: 3}
@@ -45617,7 +45674,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1733791309
 GameObject:
@@ -46767,6 +46824,7 @@ MonoBehaviour:
   gunContainer: {fileID: 615229726}
   itemThrower: {fileID: 521867464}
   handSlot: {fileID: 8276979791235184729}
+  inventory: {fileID: 1769825956}
 --- !u!54 &1769825958
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -53174,7 +53232,7 @@ Transform:
   m_Children:
   - {fileID: 467298938}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2012082068
 PrefabInstance:
@@ -55944,6 +56002,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 701472167}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 164682374}
   itemThrower: {fileID: 521867464}
 --- !u!114 &2121162210
 MonoBehaviour:
@@ -58362,6 +58421,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180793319103725}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1386180791922683851
 MonoBehaviour:
@@ -58643,6 +58703,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180793456667244}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!222 &1386180792107713668
 CanvasRenderer:
@@ -58709,6 +58770,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180793403488175}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1386180792107713673
 MonoBehaviour:
@@ -59176,6 +59238,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180793101902342}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!224 &1386180792208232738
 RectTransform:
@@ -59353,6 +59416,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180793110080750}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!224 &1386180792216969162
 RectTransform:
@@ -59902,6 +59966,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180793132227058}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!224 &1386180792381205206
 RectTransform:
@@ -60070,6 +60135,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180793875539248}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1386180792445556248
 MonoBehaviour:
@@ -60288,6 +60354,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180794024510767}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1386180792627541513
 MonoBehaviour:
@@ -60406,6 +60473,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180794027574677}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1386180792631162547
 MonoBehaviour:
@@ -61393,6 +61461,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180793656239965}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1386180792930866299
 MonoBehaviour:
@@ -61479,6 +61548,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180793652327295}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1386180792934842457
 MonoBehaviour:
@@ -61647,6 +61717,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180792244048637}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1386180793002975707
 MonoBehaviour:
@@ -61733,6 +61804,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180792254518939}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1386180793005024701
 MonoBehaviour:
@@ -62681,6 +62753,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180792131828800}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1386180793385668456
 MonoBehaviour:
@@ -63239,6 +63312,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180792842012258}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!224 &1386180793559496006
 RectTransform:
@@ -63675,6 +63749,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180792712733764}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1386180793605871468
 MonoBehaviour:
@@ -64292,6 +64367,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180792450993692}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!224 &1386180793907928984
 RectTransform:
@@ -64483,6 +64559,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180792647418929}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1386180793943750423
 MonoBehaviour:
@@ -64630,6 +64707,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 1386180792659493456}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &1386180793947402616
 MonoBehaviour:
@@ -71185,6 +71263,7 @@ MonoBehaviour:
   itemSlotUI: {fileID: 8276979791235184729}
   onMouseStartHoverItem: {fileID: 11400000, guid: 2930678b742be4a02b3ee8b0846d24b9, type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 12b1a660f9e444be78680785b91f70ec, type: 2}
+  inventory: {fileID: 1769825956}
   itemThrower: {fileID: 521867464}
 --- !u!114 &8276979790350420863
 MonoBehaviour:

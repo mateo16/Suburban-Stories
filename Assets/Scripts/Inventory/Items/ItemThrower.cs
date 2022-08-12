@@ -6,7 +6,6 @@ namespace DapperDino.Items
 {
     public class ItemThrower : MonoBehaviour
     {
-        [SerializeField] private Inventory inventory = null;
         [SerializeField] private GameObject[] pickUpPrefabs;
         [SerializeField] private Transform fpsCam,player,firePoint;
         [SerializeField] private float dropForwardForce, dropUpwardForce;
@@ -17,7 +16,7 @@ namespace DapperDino.Items
 
         private void OnDisable() => slotIndex = -1;
 
-        public void Activate(ItemSlot itemSlot, int slotIndex)
+        public void Activate(ItemSlot itemSlot, int slotIndex,Inventory inventory)
         {
 
         foreach (var prefab in pickUpPrefabs)
