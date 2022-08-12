@@ -7,6 +7,7 @@ namespace DapperDino.Items
     {
         public Dialogue dialogue;
         public MouseLook scriptlook;
+        public GunSystem scriptgun;
         public bool Interact(GameObject other)
         {
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
