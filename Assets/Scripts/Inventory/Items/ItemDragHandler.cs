@@ -11,7 +11,7 @@ namespace DapperDino.Items
         [SerializeField] protected ItemSlotUI itemSlotUI = null;
         [SerializeField] protected HotbarItemEvent onMouseStartHoverItem = null;
         [SerializeField] protected VoidEvent onMouseEndHoverItem = null;
-
+        [SerializeField] private Canvas canvas = null;
         public Inventory inventory;
 
         private CanvasGroup canvasGroup = null;
@@ -42,6 +42,8 @@ namespace DapperDino.Items
                 transform.SetParent(transform.parent.parent);
 
                 canvasGroup.blocksRaycasts = false;
+
+                canvas.sortingOrder = 9000;
             }
         }
 
@@ -60,6 +62,7 @@ namespace DapperDino.Items
                 transform.SetParent(originalParent);
                 transform.localPosition = Vector3.zero;
                 canvasGroup.blocksRaycasts = true;
+                canvas.sortingOrder = 10;
             }
         }
 
