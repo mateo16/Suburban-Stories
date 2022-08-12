@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Item_Pistol
   m_EditorClassIdentifier: 
   name: Pistol
+  description: dispara
   icon: {fileID: 21300000, guid: 2708d30b59e8b40cbad7aa5874635241, type: 3}
   sellPrice: 100
   maxStack: 1

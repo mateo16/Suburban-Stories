@@ -10,11 +10,19 @@ namespace DapperDino.Npcs.Occupations.Vendors
         [SerializeField] private TextMeshProUGUI itemNameText = null;
         [SerializeField] private Image itemIconImage = null;
 
-        public void Initialise(Item item,int quantity)
+        private VendorSystem vendorSystem = null;
+        private InventoryItem item = null;
+        public void Initialise(VendorSystem vendorSystem,InventoryItem item,int quantity)
         {
+            this.vendorSystem = vendorSystem;
+            this.item = item;
             itemNameText.text = $"{item.Name} ({quantity})";
             itemIconImage.sprite = item.Icon;
         }
+        public void SelectItem() {
+            vendorSystem.SetItem(item);
+        }
+
     }
 
 }

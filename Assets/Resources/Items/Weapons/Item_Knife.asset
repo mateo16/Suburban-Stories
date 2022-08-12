@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Item_Knife
   m_EditorClassIdentifier: 
   name: Knife
+  description: facha
   icon: {fileID: 21300000, guid: e490a725463d14b4dad9c0e9d7eff755, type: 3}
   sellPrice: 1
   maxStack: 1
