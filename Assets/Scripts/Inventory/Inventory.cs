@@ -11,7 +11,7 @@ namespace DapperDino.Items{
     public class Inventory : MonoBehaviour , IItemContainer
     {
         [SerializeField] private int money = 100;
-        [SerializeField] private HandShow hand = null;
+        public HandShow hand = null;
         [SerializeField] private UnityEvent onInventoryItemsUpdated = null;
 
         [SerializeField] private ItemSlot[] itemSlots = new ItemSlot[0];
