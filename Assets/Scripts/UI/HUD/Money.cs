@@ -1,29 +1,28 @@
 using UnityEngine;
 using TMPro;
-
+using DapperDino.Items;
 
 public class Money : MonoBehaviour
 {
-    public int startMoney = 0;
-    public int currentMoney;
+    public Inventory playerInventory;
+
     public TextMeshProUGUI moneyText;
 
     private void Start()
     {
-        currentMoney = startMoney;
-        moneyText.text = startMoney.ToString();
+        moneyText.text = playerInventory.Money.ToString();
     }
 
     public void updateMoney(int moneyToChange)
     {
-        if(currentMoney + moneyToChange < 0)
+        if(playerInventory.Money + moneyToChange < 0)
         {
-            currentMoney = 0;
+            playerInventory.Money = 0;
         }
         else
         {
-            currentMoney += moneyToChange;
+            playerInventory.Money += moneyToChange;
         }
-        moneyText.text = currentMoney.ToString();
+        moneyText.text = playerInventory.Money.ToString();
     }
 }

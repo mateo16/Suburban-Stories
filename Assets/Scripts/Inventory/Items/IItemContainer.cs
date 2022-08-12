@@ -5,6 +5,8 @@ namespace DapperDino.Items{
 
     public interface IItemContainer
 {
+    int Money { get; set; }
+
      ItemSlot GetSlotByIndex(int index);
 
     ItemSlot AddItem(ItemSlot ItemSlot);

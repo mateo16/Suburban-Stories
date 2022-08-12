@@ -6434,6 +6434,8 @@ MonoBehaviour:
   itemNameText: {fileID: 1422194754}
   itemDescriptionText: {fileID: 796265401}
   itemDataText: {fileID: 1487374923}
+  quatityText: {fileID: 0}
+  quantitySlider: {fileID: 0}
 --- !u!114 &280472371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10412,8 +10414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d8bf6d4431e49d6ac4463ccd2fc96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 100
-  currentMoney: 0
+  playerInventory: {fileID: 1769825956}
   moneyText: {fileID: 1158281406}
 --- !u!23 &473866180 stripped
 MeshRenderer:
@@ -40018,6 +40019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0e1eb81a7d09540aa25dbbdc3a5631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: 100
   hand: {fileID: 1769825957}
   onInventoryItemsUpdated:
     m_PersistentCalls:
@@ -64256,6 +64258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0e1eb81a7d09540aa25dbbdc3a5631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: 100
   hand: {fileID: 0}
   onInventoryItemsUpdated:
     m_PersistentCalls:

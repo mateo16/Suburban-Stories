@@ -62,9 +62,9 @@ public class ThiefAiScript : MonoBehaviour
         if (playerInRobRange && !alreadyRob)
         {
             int moneyToRob = Random.Range(minRangeOfMoney, maxRangeOfMoney);
-            if(moneyScript.currentMoney - moneyToRob < 0)
+            if(moneyScript.playerInventory.Money - moneyToRob < 0)
             {
-                moneyToRob = moneyScript.currentMoney;
+                moneyToRob = moneyScript.playerInventory.Money;
             }
             moneyScript.updateMoney(-moneyToRob);
             stolenMoney = moneyToRob;

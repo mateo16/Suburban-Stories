@@ -1,6 +1,7 @@
 using DapperDino.Items;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DapperDino.Npcs.Occupations.Vendors
 {
@@ -13,6 +14,10 @@ namespace DapperDino.Npcs.Occupations.Vendors
         [SerializeField] private TextMeshProUGUI itemNameText = null;
         [SerializeField] private TextMeshProUGUI itemDescriptionText = null;
         [SerializeField] private TextMeshProUGUI itemDataText = null;
+
+        [Header("Quantity Display")]
+        [SerializeField] private TextMeshProUGUI quatityText = null;
+        [SerializeField] private Slider quantitySlider = null;
 
         private VendorData scenarioData = null;
         public void StartScenario(VendorData scenarioData) {
@@ -53,6 +58,8 @@ namespace DapperDino.Npcs.Occupations.Vendors
             itemNameText.text = item.Name;
             itemDescriptionText.text = item.Description;
             itemDataText.text = item.GetInfoDisplayText();
+
+
         }
         private void ClearItemButtons()
         {
