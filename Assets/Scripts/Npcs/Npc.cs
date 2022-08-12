@@ -26,7 +26,7 @@ namespace DapperDino.Npcs
             otherInteractor = other;
             Cursor.lockState = CursorLockMode.None;
             onStartInteraction.Raise(this);
-
+            FindObjectOfType<AudioManager>().Play("Lope");
             return true;
         }
     }

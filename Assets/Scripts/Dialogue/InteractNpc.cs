@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using DapperDino.Interactables;
 
 namespace DapperDino.Items

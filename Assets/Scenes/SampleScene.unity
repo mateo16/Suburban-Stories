@@ -12840,43 +12840,48 @@ MonoBehaviour:
   sounds:
   - name: Gunshot
     clip: {fileID: 8300000, guid: 1773769a1bef16443ab7e82b37a48abd, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Death
     clip: {fileID: 8300000, guid: cb18bf7b4f2f8bc4384509a71b18d959, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Money Stolen
     clip: {fileID: 8300000, guid: 94807fb18c0598143b6167163d72cbf3, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Money Returned
     clip: {fileID: 8300000, guid: f09de2d8a3745c04b993c40eab6fb4d5, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Reload
     clip: {fileID: 8300000, guid: 217992243d3f4bf42963a878e23840cc, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Knife Swing
     clip: {fileID: 8300000, guid: 12a55f1bf65fa514f9b8b1921c1cc3f0, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Knife Swing 2
     clip: {fileID: 8300000, guid: d526644df5b042c4d9fdc256f7069b9e, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Machinegun Shot
     clip: {fileID: 8300000, guid: 6f44d9b73e10894448e987c1115b1241, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Lope
+    clip: {fileID: 8300000, guid: eb526bfe5f8b4ec49afef262aad122f3, type: 3}
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
 --- !u!4 &461151731
 Transform:
@@ -52189,7 +52194,7 @@ MonoBehaviour:
       a medida que se desenlazo nuestra conversaci\xF3n, me gustar\xEDa decirle que
       tiene un inventario al que puede acceder con la tecla i"
   scriptlook: {fileID: 963194229}
-  scriptgun: {fileID: 3734544668042737057, guid: 5ab88c0b12c524e63a8b79fedc3c811c, type: 3}
+  scriptgun: {fileID: 0}
 --- !u!4 &1971452112
 Transform:
   m_ObjectHideFlags: 0
@@ -71691,8 +71696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onStartInteraction: {fileID: 11400000, guid: 58f28ad290917469c8ceb5da23a9b33c, type: 2}
-  name: Jorge
-  greetingText: Hola
+  name: Lopez
+  greetingText: Que queres comprar perri
 --- !u!136 &8373957319418798646
 CapsuleCollider:
   m_ObjectHideFlags: 0
