@@ -11,6 +11,12 @@ public class MainMenu : MonoBehaviour
     public static string currentWorldName;
     public GameObject loadingScreen;
     public Slider slider;
+    public AudioManager audioo;
+
+    public void Start()
+    {
+        audioo.Play("Theme");
+    }
 
     public void PlayGame()
     {

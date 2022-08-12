@@ -69,6 +69,7 @@ public class ThiefAiScript : MonoBehaviour
             moneyScript.updateMoney(-moneyToRob);
             stolenMoney = moneyToRob;
             alreadyRob = true;
+            FindObjectOfType<AudioManager>().Play("Dormiste");
         }
     }
     private void FleePlayer()
