@@ -25,7 +25,9 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+    public CapsuleCollider coll;
     Vector2 movement;
+
 
     Vector3 velocity;
     bool isGrounded;
@@ -82,13 +84,17 @@ public class PlayerMovement : MonoBehaviour
         }
         if (isCrouching && canCrouch)
         {
-            MouseLookScript.Crouching(isCrouching);
+            //MouseLookScript.Crouching(isCrouching);
+            coll.height = 1f;
+            controller.height = 1f;
             canCrouch = false;
             canCrouch2 = true;
         }
         if (!isCrouching && canCrouch2)
         {
-            MouseLookScript.Crouching(isCrouching);
+            //MouseLookScript.Crouching(isCrouching);
+            coll.height = 2f;
+            controller.height = 2f;
             canCrouch = true;
             canCrouch2 = false;
         }

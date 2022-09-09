@@ -10,6 +10,7 @@ namespace DapperDino.Npcs
         [SerializeField] private NpcEvent onStartInteraction = null;
         [SerializeField] private new string name = "New Npc Name";
         [SerializeField] private string greetingText = "Hola";
+        [SerializeField] private VoidEvent DisableGunSystem;
         private IOccupation[] occupations = new IOccupation[0];
 
         private GameObject otherInteractor = null;
@@ -26,6 +27,7 @@ namespace DapperDino.Npcs
             otherInteractor = other;
             Cursor.lockState = CursorLockMode.None;
             onStartInteraction.Raise(this);
+            DisableGunSystem.Raise();
             FindObjectOfType<AudioManager>().Play("Lope");
             return true;
         }

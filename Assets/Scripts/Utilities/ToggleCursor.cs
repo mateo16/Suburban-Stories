@@ -9,7 +9,7 @@ namespace DapperDino.Utilities
         public void ToggleCursorActive()
         {
 
-                    Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.None;
 
                     
         }

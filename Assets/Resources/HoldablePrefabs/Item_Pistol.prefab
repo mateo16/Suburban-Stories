@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 27477334892176950}
   - component: {fileID: 7354276191089876024}
   - component: {fileID: 2492951246338310464}
+  - component: {fileID: 149095682517298424}
   m_Layer: 11
   m_Name: Item_Pistol
   m_TagString: Untagged
@@ -95,7 +96,7 @@ MonoBehaviour:
   attackPoint: {fileID: 2934816327443029360}
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 5623
+    m_Bits: 449
   muzzleFlash: {fileID: 1000010254994808, guid: a74879e14c666654f8ae145925970673, type: 3}
   muzzleFlashSchool: {fileID: 1277954026192068, guid: 7d0e747d51d99cf40adfbe3e303c6f32, type: 3}
   bulletHoleGraphic: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
@@ -232,6 +233,34 @@ MonoBehaviour:
       - m_Target: {fileID: 27477334892176950}
         m_TargetAssemblyTypeName: SpriteReplacer, Assembly-CSharp
         m_MethodName: ChangeSprite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &149095682517298424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166335447626452540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 887ce156903224f6388665beb68594a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 1121126c8d8cc564aaae38eb8d5a6924, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5613525891458409184}
+        m_TargetAssemblyTypeName: GunSystem, Assembly-CSharp
+        m_MethodName: DisableGunSystem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

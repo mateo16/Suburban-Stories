@@ -30,6 +30,8 @@ public class GunSystem : MonoBehaviour
     public AudioClip reloadClip;
 
     public GameObject enemyImpactSchool;
+    private bool gunSystemActive = true;
+
 
 
     //public TextMeshProUGUI text;
@@ -62,7 +64,7 @@ public class GunSystem : MonoBehaviour
 
         if (Input.GetKeyDown(reloadingKey) && bulletsLeft < magazineSize && !reloading) Reload();
 
-        if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if(readyToShoot && shooting && !reloading && bulletsLeft > 0 && gunSystemActive)
         {
             bulletsShot = bulletsPerTap;
             Scriptammo.ReduceAmmo();
@@ -80,6 +82,7 @@ public class GunSystem : MonoBehaviour
         Vector3 direction = fpsCam.transform.forward + new Vector3(x,y,0);
 
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy)){
+
             if (rayHit.collider.CompareTag("Enemy"))
             {
                 rayHit.collider.GetComponent<EnemyDamage>().TakeDamage(damage);
@@ -146,5 +149,8 @@ public class GunSystem : MonoBehaviour
         bulletsLeft = magazineSize;
         Scriptammo.RestartAmmo(magazineSize);
         reloading = false;
+    }
+    public void DisableGunSystem(){
+        gunSystemActive = !gunSystemActive;
     }
 }
