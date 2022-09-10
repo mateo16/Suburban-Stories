@@ -2158,7 +2158,7 @@ Transform:
   - {fileID: 1012995362}
   - {fileID: 1519389517}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &56464415
 MonoBehaviour:
@@ -2810,7 +2810,7 @@ Transform:
   m_Children:
   - {fileID: 919521185}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &70637038
 MonoBehaviour:
@@ -3637,7 +3637,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &116972590
 GameObject:
@@ -4950,6 +4950,8 @@ MonoBehaviour:
   chestCanvas: {fileID: 1343633715}
   inventoryCanvas: {fileID: 2008612187}
   inventoryCanvas2: {fileID: 1487809833}
+  scriptLook: {fileID: 963194229}
+  DisableGunSystem: {fileID: 11400000, guid: 1121126c8d8cc564aaae38eb8d5a6924, type: 2}
 --- !u!65 &164682376
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7120,7 +7122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3472685814262436570, guid: 3619df90c8233d743a0cdcbb2b902aa7, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3472685814262436570, guid: 3619df90c8233d743a0cdcbb2b902aa7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17725,7 +17727,7 @@ Transform:
   - {fileID: 1229625633}
   - {fileID: 1534390657}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!136 &661886030
 CapsuleCollider:
@@ -19770,7 +19772,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 283abc975eb456e48a32b741181183aa, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 283abc975eb456e48a32b741181183aa, type: 3}
       propertyPath: m_LocalScale.x
@@ -24231,7 +24233,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4878324097980413137, guid: 10399e7e91e8c4f4aac13e9564db8720, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4878324097980413137, guid: 10399e7e91e8c4f4aac13e9564db8720, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28891,7 +28893,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1103829331
 GameObject:
@@ -35389,7 +35391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5330937201328300309, guid: a230df90defd65a4ca5e6fc716747187, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5330937201328300309, guid: a230df90defd65a4ca5e6fc716747187, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36559,7 +36561,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1394820629
 GameObject:
@@ -43524,7 +43526,7 @@ Transform:
   - {fileID: 1145895105}
   - {fileID: 835678373}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1649102710
 GameObject:
@@ -45978,7 +45980,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1750663617
 GameObject:
@@ -52352,7 +52354,7 @@ Transform:
   m_Children:
   - {fileID: 2772460207332976530}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1973868685
 PrefabInstance:
@@ -66407,6 +66409,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1343633715}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2508968767922388707
 GameObject:
   m_ObjectHideFlags: 0
@@ -67603,7 +67617,7 @@ Transform:
   - {fileID: 366530797696151450}
   - {fileID: 7062403510198818782}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &4287326544672125060
 GameObject:
@@ -69099,7 +69113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5835530722194757706, guid: 7b7d2ee64b3c95048b4ecbfa427a1086, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5835530722194757706, guid: 7b7d2ee64b3c95048b4ecbfa427a1086, type: 3}
       propertyPath: m_LocalPosition.x
@@ -69559,6 +69573,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 963194229}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &6308180642413439792
 GameObject:
   m_ObjectHideFlags: 0
@@ -69984,6 +70010,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 963194229}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &6639456297406911980
 GameObject:
@@ -72592,6 +72630,7 @@ MonoBehaviour:
   name: Lopez
   greetingText: Que queres comprar perri?
   DisableGunSystem: {fileID: 11400000, guid: 1121126c8d8cc564aaae38eb8d5a6924, type: 2}
+  scriptLook: {fileID: 963194229}
 --- !u!136 &8373957319418798646
 CapsuleCollider:
   m_ObjectHideFlags: 0
