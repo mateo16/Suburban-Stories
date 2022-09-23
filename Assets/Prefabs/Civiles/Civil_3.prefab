@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8338198300693981539}
   - component: {fileID: 3643765656742312884}
   - component: {fileID: 3324507021723825669}
+  - component: {fileID: -6913447483881471087}
   m_Layer: 0
   m_Name: Civil_3
   m_TagString: Enemy
@@ -93,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  exp: 2
 --- !u!54 &3324507021723825669
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -109,6 +111,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-6913447483881471087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3047797151011404147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952ecc49ecb185d48aeb56f29222d74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Niger
+    sentences:
+    - Yo, yo, yo! 1-4-8-3 to the 3 to the 6 to the 9. representin' the ABQ, what
+      up biatch
+  scriptlook: {fileID: 0}
+  scriptgun: {fileID: 0}
 --- !u!1001 &2798382076376102625
 PrefabInstance:
   m_ObjectHideFlags: 0

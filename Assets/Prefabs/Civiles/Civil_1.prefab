@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4957714037449229018}
   - component: {fileID: 3806049875225906251}
   - component: {fileID: 2798113853174899300}
+  - component: {fileID: 7459504313881966097}
   m_Layer: 0
   m_Name: Civil_1
   m_TagString: Enemy
@@ -93,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  exp: 2
 --- !u!54 &2798113853174899300
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -109,6 +111,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &7459504313881966097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508172077164962511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952ecc49ecb185d48aeb56f29222d74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Cheto
+    sentences:
+    - Hola tio, como eshtash hostia
+    - El otro dia, al llegar aqui a Suburban city, me robaron el celular tio. Quien
+      diria que existen pershonas que harian eso en este paish joder
+    - "Vine a bushcarlo pero ahora encuentro tios que me hablan con un lenguaje que
+      no entiendo chaval, creo que tendre que vovler a hishpa\xF1a hermano, eshte
+      lugar es una porquer\xEDa"
+  scriptlook: {fileID: 0}
+  scriptgun: {fileID: 0}
 --- !u!1001 &2627418941238503762
 PrefabInstance:
   m_ObjectHideFlags: 0

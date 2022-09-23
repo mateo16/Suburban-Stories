@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4788240805973250036}
   - component: {fileID: 7310452577049516203}
   - component: {fileID: 8865272076261012277}
+  - component: {fileID: 6350966519270328169}
   m_Layer: 0
   m_Name: Civil_2
   m_TagString: Enemy
@@ -93,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  exp: 2
 --- !u!54 &8865272076261012277
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -109,6 +111,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &6350966519270328169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145684885227016500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952ecc49ecb185d48aeb56f29222d74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Allah
+    sentences:
+    - Allah abjadul ibjam adonai
+  scriptlook: {fileID: 0}
+  scriptgun: {fileID: 0}
 --- !u!1001 &8791547398360494465
 PrefabInstance:
   m_ObjectHideFlags: 0

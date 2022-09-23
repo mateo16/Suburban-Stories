@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public CapsuleCollider coll;
     Vector2 movement;
 
-
+    private bool firstTime = false;
     Vector3 velocity;
     bool isGrounded;
 
@@ -44,6 +44,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
+            if(firstTime == false){
+                questSystemTrucho.questNumber = 2;
+                firstTime = true;
+            }
+            
             if (anim != null)
             {
                 anim.SetBool("IsMoving", false);

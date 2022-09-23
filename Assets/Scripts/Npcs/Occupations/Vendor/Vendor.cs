@@ -15,6 +15,7 @@ namespace DapperDino.Npcs.Occupations.Vendors
 
         public void Trigger(GameObject other)
         {
+            questSystemTrucho.questNumber = 4;
             Cursor.lockState = CursorLockMode.None;
             var otherItemContainer = other.GetComponent<IItemContainer>();
             if (otherItemContainer == null) { return; }
