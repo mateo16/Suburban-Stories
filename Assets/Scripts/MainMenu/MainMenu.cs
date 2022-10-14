@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public GameObject loadingScreen;
     public Slider slider;
     public AudioManager audioo;
+    public GameObject ClickSoundEffect;
 
     public void Start()
     {
@@ -20,6 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        FindObjectOfType<AudioManager>().Play("ClickSoundEffect");
         if(createWorldName.text.Trim() != "") {
             currentWorldName = createWorldName.text.Trim();
             StartCoroutine(LoadScene());
@@ -32,6 +34,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
+        FindObjectOfType<AudioManager>().Play("ClickSoundEffect");
         if (loadWorldName.text.Trim() != "")
         {
             currentWorldName = loadWorldName.text.Trim();
@@ -59,6 +62,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        FindObjectOfType<AudioManager>().Play("ClickSoundEffect");
         Debug.Log("Quit");
         Application.Quit();
     }

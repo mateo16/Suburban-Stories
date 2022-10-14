@@ -15,7 +15,7 @@ public class Experience : MonoBehaviour
         experience = 0;
         level = 1;
         expSlider.value = 0;
-        expText.text = "1";
+        expText.text = "Nivel 1";
     }
 
     

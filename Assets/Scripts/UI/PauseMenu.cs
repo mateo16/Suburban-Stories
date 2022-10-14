@@ -34,6 +34,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Resume()
     {
+        FindObjectOfType<AudioManager>().Play("ClickSoundEffect");
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -48,6 +49,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void SaveOnline()
     {
+        FindObjectOfType<AudioManager>().Play("ClickSoundEffect");
         playerData.health = HealthBar.currentHealth;
         playerData.WorldName = MainMenu.currentWorldName;
         if(playerData.WorldName != null)
@@ -62,10 +64,11 @@ public class PauseMenu : MonoBehaviour
     }
     public void Settings()
     {
-
+        FindObjectOfType<AudioManager>().Play("ClickSoundEffect");
     }
     public void SchoolMode()
     {
+        FindObjectOfType<AudioManager>().Play("ClickSoundEffect");
         OnSchoolModeChange.Raise();
         if (schoolMode)
         {
@@ -78,11 +81,14 @@ public class PauseMenu : MonoBehaviour
     }
     public void Menu()
     {
+        FindObjectOfType<AudioManager>().Play("ClickSoundEffect");
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
     public void Quit()
     {
+        FindObjectOfType<AudioManager>().Play("ClickSoundEffect");
         Application.Quit();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

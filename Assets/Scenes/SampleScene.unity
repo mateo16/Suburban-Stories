@@ -1144,7 +1144,7 @@ RectTransform:
   - {fileID: 469812476}
   - {fileID: 1254089672}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5421,7 +5421,7 @@ RectTransform:
   m_Children:
   - {fileID: 1343633716}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12317,8 +12317,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Movete usando el WASD
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 67aef242f31ced94fb6dc6ac5b84cc96, type: 2}
+  m_sharedMaterial: {fileID: -8752415438805689533, guid: 67aef242f31ced94fb6dc6ac5b84cc96, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12479,6 +12479,16 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Cagaste
     clip: {fileID: 8300000, guid: 7ee85ffcfd245664eb5c8c056d6060ef, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ClickSoundEffect
+    clip: {fileID: 8300000, guid: d4c9e35f7e8fdf546adf16bd14e19cfe, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ChestOpen
+    clip: {fileID: 8300000, guid: 742965ff2121dd0439fd925bed46b0de, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
@@ -29209,8 +29219,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 67aef242f31ced94fb6dc6ac5b84cc96, type: 2}
+  m_sharedMaterial: {fileID: -8752415438805689533, guid: 67aef242f31ced94fb6dc6ac5b84cc96, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -34101,7 +34111,7 @@ RectTransform:
   m_Children:
   - {fileID: 1299955999}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -37253,7 +37263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 114, y: -70}
+  m_AnchoredPosition: {x: -329, y: -70}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1504809925
@@ -39241,8 +39251,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 67aef242f31ced94fb6dc6ac5b84cc96, type: 2}
+  m_sharedMaterial: {fileID: -8752415438805689533, guid: 67aef242f31ced94fb6dc6ac5b84cc96, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -42137,7 +42147,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 90c673132e1c31a4baa8cf9783d71c5a, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -44113,7 +44123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -150}
+  m_AnchoredPosition: {x: 300, y: -147}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1759682951

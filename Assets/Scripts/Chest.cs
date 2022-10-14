@@ -14,6 +14,7 @@ namespace DapperDino.Items
 
         public bool Interact(GameObject other)
         {
+            FindObjectOfType<AudioManager>().Play("ChestOpen");
             chestCanvas.SetActive(true);
             inventoryCanvas.SetActive(true);
             inventoryCanvas2.SetActive(true);

@@ -3646,7 +3646,8 @@ MonoBehaviour:
   loadWorldName: {fileID: 849137736}
   loadingScreen: {fileID: 74804493}
   slider: {fileID: 2074068202}
-  audioo: {fileID: 0}
+  audioo: {fileID: 1452543530}
+  ClickSoundEffect: {fileID: 1452543529}
 --- !u!1001 &335075058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4079,7 +4080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &393410513
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15091,6 +15092,11 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Theme
     clip: {fileID: 8300000, guid: adac0d7f0df7ae946bfc0bdb84fa25cf, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ClickSoundEffect
+    clip: {fileID: 8300000, guid: d4c9e35f7e8fdf546adf16bd14e19cfe, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
